@@ -162,8 +162,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 219160225}
-  - 64: {fileID: 219160227}
   - 212: {fileID: 219160226}
+  - 61: {fileID: 219160227}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -205,19 +205,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &219160227
-MeshCollider:
+--- !u!61 &219160227
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 219160224}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1.00000024, y: 1.00000024}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &390430090
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +308,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1097054677}
-  - 64: {fileID: 1097054679}
   - 212: {fileID: 1097054678}
+  - 61: {fileID: 1097054679}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -353,19 +351,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &1097054679
-MeshCollider:
+--- !u!61 &1097054679
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1097054676}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1.00000012, y: 1}
+  m_Center: {x: 3.44589353e-08, y: -7.62939453e-06}
 --- !u!1 &1141775236
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,8 +370,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1141775237}
-  - 64: {fileID: 1141775239}
   - 212: {fileID: 1141775238}
+  - 61: {fileID: 1141775239}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -417,19 +413,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &1141775239
-MeshCollider:
+--- !u!61 &1141775239
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1141775236}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1153955754
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,8 +432,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1153955755}
-  - 64: {fileID: 1153955757}
   - 212: {fileID: 1153955756}
+  - 61: {fileID: 1153955757}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -481,19 +475,95 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &1153955757
-MeshCollider:
+--- !u!61 &1153955757
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1153955754}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Size: {x: 1.00000012, y: 1.00000012}
+  m_Center: {x: -3.44589353e-08, y: -1.52587891e-05}
+--- !u!1 &1201012283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1201012287}
+  - 212: {fileID: 1201012286}
+  - 61: {fileID: 1201012285}
+  - 50: {fileID: 1201012284}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &1201012284
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!61 &1201012285
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
   m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!212 &1201012286
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 5
+  m_SortingLayerID: 0
+  m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1201012287
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.852587223, y: -.137980461, z: 0}
+  m_LocalScale: {x: .75, y: 2.5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1795687646
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,8 +572,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1795687650}
-  - 64: {fileID: 1795687648}
   - 212: {fileID: 1795687647}
+  - 61: {fileID: 1795687648}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -534,19 +604,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &1795687648
-MeshCollider:
+--- !u!61 &1795687648
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1795687646}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1.00000012, y: 1.00000012}
+  m_Center: {x: 3.44589353e-08, y: 1.52587891e-05}
 --- !u!4 &1795687650
 Transform:
   m_ObjectHideFlags: 0
@@ -566,8 +634,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1816441456}
-  - 64: {fileID: 1816441458}
   - 212: {fileID: 1816441457}
+  - 61: {fileID: 1816441458}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -609,19 +677,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &1816441458
-MeshCollider:
+--- !u!61 &1816441458
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1816441455}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1.00000012, y: 1}
+  m_Center: {x: -3.44589353e-08, y: 7.62939453e-06}
 --- !u!1 &1982555183
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +696,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1982555184}
-  - 64: {fileID: 1982555186}
   - 212: {fileID: 1982555185}
+  - 61: {fileID: 1982555186}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -673,19 +739,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &1982555186
-MeshCollider:
+--- !u!61 &1982555186
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1982555183}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &2015072288
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,8 +758,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2015072289}
-  - 64: {fileID: 2015072291}
   - 212: {fileID: 2015072290}
+  - 61: {fileID: 2015072291}
   m_Layer: 0
   m_Name: OctagonSide
   m_TagString: Untagged
@@ -737,16 +801,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!64 &2015072291
-MeshCollider:
+--- !u!61 &2015072291
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2015072288}
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 1.00000024, y: 1.00000024}
+  m_Center: {x: 0, y: 0}
