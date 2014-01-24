@@ -1,0 +1,14 @@
+# Ignore all folders
+/*/
+
+# Except these
+!/[Aa]ssets/
+!/[Aa]ssets/*
+!/[Pp]roject[Ss]ettings/
+!/[Pp]roject[Ss]ettings/*
+
+# Ignore files..
+/*.*
+
+# Dont exclude this..
+!.gitignore
