@@ -13,6 +13,7 @@ public class HitScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		health = fullHealth;
+
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -27,22 +28,36 @@ public class HitScript : MonoBehaviour {
 				//Esko
 
 				health -= (int)(damageMultiplier * (mag - armor));
+				Debug.Log ( "HEALTH:" + health );
+				//Esko
+				if (health <= 0)
+				{	
+					transform.GetComponentInChildren<PlayerAnimatorControllerScript> ().Killed = true;
+					while(transform.GetComponentInChildren<Animator>().animation.IsPlaying("death"))
+					{
+						;
+					}
+				
+				}
+				//Esko
 			}
 		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (health <= 0)
-		{
+		if (health <= 0) {
+
+			Debug.Log ("KILLED!!!!");
 			lives--;
 			health = fullHealth;
-			transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+			//transform.position = new Vector3 (0.0f, 0.0f, 0.0f);
 		}
-
-		if (lives <= 0)
-		{
-		    Destroy(transform.gameObject);
+		
+		if (lives <= 0) {
+			Destroy (transform.gameObject);
 		}
 	}
+
+
 }

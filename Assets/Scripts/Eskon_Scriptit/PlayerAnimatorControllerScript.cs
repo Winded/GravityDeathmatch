@@ -10,6 +10,7 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
 	public float move;
 	public bool jumping = false;
 	public bool gotHit = false;
+	public bool Killed = false;
 	
 	
 	private Animator _Animator;
@@ -48,6 +49,12 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
 		{
 			_Animator.SetTrigger("Gothit");
 			gotHit = !gotHit;
+		}
+
+		if (Killed)
+		{
+			_Animator.SetTrigger("Killed");
+			Killed = !Killed;
 		}
 
 	}
