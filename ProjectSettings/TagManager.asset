@@ -39,6 +39,14 @@ TagManager:
   User Layer 30: 
   User Layer 31: 
   m_SortingLayers:
+  - name: stars
+    userID: 2
+    uniqueID: 2769695339
+    locked: 0
+  - name: asteroid
+    userID: 1
+    uniqueID: 732187047
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0
