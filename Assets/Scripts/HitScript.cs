@@ -12,17 +12,10 @@ public class HitScript : MonoBehaviour {
 	public int health;
 
 	// Use this for initialization
-<<<<<<< HEAD
-	void Start () {
-		health = fullHealth;
-
-	}
-=======
     private void Start()
     {
         health = fullHealth;
     }
->>>>>>> 6bc63f88186f0a1b2a9d5dbebbde211226933ea8
 
     void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -37,7 +30,6 @@ public class HitScript : MonoBehaviour {
 				//Esko
 
 				health -= (int)(damageMultiplier * (mag - armor));
-<<<<<<< HEAD
 				Debug.Log ( "HEALTH:" + health );
 				//Esko
 				if (health <= 0)
@@ -50,10 +42,8 @@ public class HitScript : MonoBehaviour {
 				
 				}
 				//Esko
-=======
 			    BloodSpill.transform.position = collision.contacts[0].point;
 			    BloodSpill.Play();
->>>>>>> 6bc63f88186f0a1b2a9d5dbebbde211226933ea8
 			}
 		}
 	}
