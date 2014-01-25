@@ -6,7 +6,7 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
 
 	public float maxSpeed = 10f;
 	bool facingRight = true;
-	public Vector2 currentVelocity
+    public Vector2 currentVelocity;
 
     private Animator _Animator;
 
