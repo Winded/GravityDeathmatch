@@ -24,11 +24,12 @@ public class PlayerAnimatorControllerScript : MonoBehaviour
     // Update is called once per frame
 	void FixedUpdate ()
 	{
-	    float move = Input.GetAxis("Horizontal");
-	    _Animator.SetFloat("Speed", move);
-		if (move > 0 && facingRight)
+
+	    //float move = Input.GetAxis("Horizontal");
+	    //_Animator.SetFloat("Speed", move);
+		if (_Animator.GetFloat("Speed") > 0 && facingRight)
 			Flip ();
-		if (move < 0 && !facingRight)
+		if (_Animator.GetFloat("Speed") < 0 && !facingRight)
 			Flip ();
 	}
 
