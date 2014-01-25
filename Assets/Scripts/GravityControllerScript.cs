@@ -11,6 +11,12 @@ public class GravityControllerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		bullets [0].GetComponent<GravityScript> ().gravityAngle = 270.0f;
+		players [0].GetComponent<GravityScript> ().gravityAngle = 270.0f;
+		players[0].GetComponent<Controller2D>().MoveAngle = (270 + 90) % 360;
+
+		bullets [1].GetComponent<GravityScript> ().gravityAngle = 90.0f;
+		players [1].GetComponent<GravityScript> ().gravityAngle = 90.0f;
+		players[1].GetComponent<Controller2D>().MoveAngle = (90 + 90) % 360;
 	}
 
 	public void SetGravity(int player) {
@@ -30,7 +36,9 @@ public class GravityControllerScript : MonoBehaviour {
 	void FixedUpdate()
 	{
 		bullets [0].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
-		//players [0].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
+		bullets [1].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
+		players [0].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
+		players [1].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
 	}
 
 	// Update is called once per frame

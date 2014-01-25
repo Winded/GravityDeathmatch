@@ -8,7 +8,7 @@ public class GravityScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gravityAngle = 270.0f;
+		//gravityAngle = 270.0f;
 		//gravityDir = new Vector2 (0.0f, -1.0f);	
 	}
 

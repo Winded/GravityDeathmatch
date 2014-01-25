@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour {
 	{
 		if (!bullet.GetComponent<BulletScript> ().IsAttached) 
 		{
-			GameObject.Find("GravityController").GetComponent<GravityControllerScript>().SetGravity(0);
+			GameObject.Find("GravityController").GetComponent<GravityControllerScript>().SetGravity(playerID);
 		}
 	}
 
