@@ -7,22 +7,26 @@ public class HitScript : MonoBehaviour {
 	public int fullHealth;
 	public float damageMultiplier;
 	public float armor;
+    public ParticleSystem BloodSpill;
 
 	int health;
 
 	// Use this for initialization
-	void Start () {
-		health = fullHealth;
-	}
+    private void Start()
+    {
+        health = fullHealth;
+    }
 
-	void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
 	{
 		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet") )
 		{
 			var mag = collision.relativeVelocity.magnitude;
-			if ( mag > armor) 
+			if (mag > armor)
 			{
 				health -= (int)(damageMultiplier * (mag - armor));
+			    BloodSpill.transform.position = collision.contacts[0].point;
+			    BloodSpill.Play();
 			}
 		}
 	}
