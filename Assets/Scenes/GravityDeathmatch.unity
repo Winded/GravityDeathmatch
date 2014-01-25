@@ -593,6 +593,7 @@ MonoBehaviour:
   JumpForce: 50000
   Gravity: -1000
   MoveSpeed: 50
+  RotationSpeed: 120
   GroundDetector: {fileID: 1201012290}
 --- !u!61 &1201012290
 BoxCollider2D:

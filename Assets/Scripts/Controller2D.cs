@@ -10,6 +10,7 @@ public class Controller2D : MonoBehaviour
     public float Gravity = 20f;
 
     public float MoveSpeed = 10f;
+    public float RotationSpeed = 90f;
 
     public Collider2D GroundDetector;
 
@@ -34,14 +35,13 @@ public class Controller2D : MonoBehaviour
         {
             MoveAngle += 90f;
             MoveAngle %= 360f;
-            var euler = transform.rotation.eulerAngles;
-            euler.z = MoveAngle;
-            transform.rotation = Quaternion.Euler(euler);
         }
 
         UpdateVertical();
 
         UpdateHorizontal();
+
+        UpdateAngle();
 
     }
 
@@ -69,6 +69,18 @@ public class Controller2D : MonoBehaviour
             rigidbody2D.AddForce(vdir*JumpForce*Time.deltaTime);
         }
 
+    }
+
+    void UpdateAngle()
+    {
+        var euler = transform.rotation.eulerAngles;
+        var diff = Angles.Difference(MoveAngle, euler.z);
+        var rotamount = diff*Time.deltaTime*RotationSpeed;
+        if (diff <= rotamount)
+            euler.z += diff;
+        else
+            euler.z += rotamount;
+        transform.eulerAngles = euler;
     }
 
     void OnTriggerStay2D(Collider2D other)
