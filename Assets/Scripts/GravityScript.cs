@@ -3,15 +3,17 @@ using System.Collections;
 
 public class GravityScript : MonoBehaviour {
 
-	public Vector2 gravityDir;
+	//public Vector2 gravityDir;
+	public float gravityAngle;
 
 	// Use this for initialization
 	void Start () {
-		gravityDir = new Vector2 (0.0f, -1.0f);	
+		gravityAngle = 270.0f;
+		//gravityDir = new Vector2 (0.0f, -1.0f);	
 	}
 
 	public void ApplyGravity(float magnitude) {
-		rigidbody2D.AddForce (magnitude * gravityDir.normalized);
+		rigidbody2D.AddForce (Vectors.RotateVector2(Vector2.right, gravityAngle) * magnitude );
 	}
 
 	void FixedUpdate() {

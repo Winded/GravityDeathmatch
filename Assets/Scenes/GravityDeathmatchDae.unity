@@ -387,7 +387,7 @@ GameObject:
   - 61: {fileID: 558863994}
   - 50: {fileID: 558863993}
   - 114: {fileID: 558863999}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Bullet0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,6 +557,10 @@ Prefab:
     - target: {fileID: 100000, guid: d354700a29acdbd48b29a71433c7895e, type: 2}
       propertyPath: m_Name
       value: Bullet0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d354700a29acdbd48b29a71433c7895e, type: 2}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d354700a29acdbd48b29a71433c7895e, type: 2}
