@@ -13,8 +13,8 @@ public class Controller2D : MonoBehaviour
 
     public Collider2D GroundDetector;
 
-    private float _VSpeed;
-    private float _Speed;
+    //private float _VSpeed;
+    //private float _Speed;
     private bool _OnGround;
 
     void Awake()
@@ -34,10 +34,10 @@ public class Controller2D : MonoBehaviour
         {
             MoveAngle += 90f;
             MoveAngle %= 360f;
-            var euler = transform.rotation.eulerAngles;
-            euler.z = MoveAngle;
-            transform.rotation = Quaternion.Euler(euler);
         }
+		var euler = transform.rotation.eulerAngles;
+		euler.z = MoveAngle;
+		transform.rotation = Quaternion.Euler(euler);
 
         UpdateVertical();
 
@@ -62,7 +62,7 @@ public class Controller2D : MonoBehaviour
     {
 
         var vdir = Vectors.RotateVector2(Vector2.up, MoveAngle);
-        rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
+        //rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && _OnGround)
         {
@@ -83,7 +83,7 @@ public class Controller2D : MonoBehaviour
 
     public void Jump()
     {
-        _VSpeed = JumpForce;
+        //_VSpeed = JumpForce;
     }
 
 }

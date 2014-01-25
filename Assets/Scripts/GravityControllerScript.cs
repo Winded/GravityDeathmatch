@@ -10,7 +10,7 @@ public class GravityControllerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bullets [0].GetComponent<GravityScript> ().gravityDir = new Vector2 (0, -1);
+		bullets [0].GetComponent<GravityScript> ().gravityAngle = 270.0f;
 	}
 
 	public void SetGravity(int player) {
@@ -18,8 +18,10 @@ public class GravityControllerScript : MonoBehaviour {
 		Collider2D collider = Physics2D.OverlapPoint (pos, 1 << LayerMask.NameToLayer("Octagonsector"));
 		//if (Physics.Raycast (pos, new Vector3(0.0f, 0.0f, -1.0f), out hit) ) {
 		if ( collider != null ) {
-			bullets [player].GetComponent<GravityScript> ().gravityDir = collider.GetComponent<GravityAreaScript> ().gravityDir;
-			players[player].GetComponent<GravityScript> ().gravityDir = collider.GetComponent<GravityAreaScript> ().gravityDir;
+			var gravityAngle = collider.GetComponent<GravityAreaScript> ().gravityAngle;
+			bullets [player].GetComponent<GravityScript> ().gravityAngle = gravityAngle;
+			players[player].GetComponent<GravityScript> ().gravityAngle = gravityAngle;
+			players[player].GetComponent<Controller2D>().MoveAngle = (gravityAngle + 90) % 360;
 		} else{
 			Debug.Log ("Gravity collider not found!");
 		}
