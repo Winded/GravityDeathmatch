@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class HitScript : MonoBehaviour {
-
+	
 	public int lives;
 	public int fullHealth;
 	public float damageMultiplier;
@@ -10,7 +10,7 @@ public class HitScript : MonoBehaviour {
     public ParticleSystem BloodSpill;
 
 	public int health;
-
+	
 	// Use this for initialization
     private void Start()
     {
@@ -23,12 +23,12 @@ public class HitScript : MonoBehaviour {
             && GetComponent<PlayerScript>().bullet != collision.collider.GetComponent<BulletScript>())
 		{
 			var mag = collision.relativeVelocity.magnitude;
-			if (mag > armor)
+			if ( mag > armor) 
 			{
 				//Esko
 				transform.GetComponentInChildren<PlayerAnimatorControllerScript>().gotHit = true;
 				//Esko
-
+				
 				health -= (int)(damageMultiplier * (mag - armor));
 				Debug.Log ( "HEALTH:" + health );
 				//Esko
@@ -39,7 +39,7 @@ public class HitScript : MonoBehaviour {
 					{
 						;
 					}
-				
+					
 				}
 				//Esko
 			    BloodSpill.transform.position = collision.contacts[0].point;
@@ -47,11 +47,11 @@ public class HitScript : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
 		if (health <= 0) {
-
+			
 			Debug.Log ("KILLED!!!!");
 			lives--;
 			health = fullHealth;
@@ -62,6 +62,6 @@ public class HitScript : MonoBehaviour {
 			Destroy (transform.gameObject);
 		}
 	}
-
-
+	
+	
 }
