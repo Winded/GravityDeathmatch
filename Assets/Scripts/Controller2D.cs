@@ -60,6 +60,7 @@ public class Controller2D : MonoBehaviour
     void FixedUpdate()
     {
         _OnGround = false;
+
     }
 
     void UpdateHorizontal()
