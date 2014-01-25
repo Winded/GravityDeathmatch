@@ -1047,6 +1047,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  health: 0
 --- !u!114 &622635531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,11 +1091,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 0}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 622635532}
   horizontalInput: 0
   sprite: {fileID: 622549101}
@@ -1446,6 +1448,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  health: 0
 --- !u!114 &950296626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1489,11 +1492,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 0}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 950296627}
   horizontalInput: 0
   sprite: {fileID: 1140274611}
@@ -2024,11 +2028,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 0}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 1201012290}
   horizontalInput: 0
   sprite: {fileID: 622549101}
@@ -2073,6 +2078,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  health: 0
 --- !u!114 &1201012293
 MonoBehaviour:
   m_ObjectHideFlags: 0
