@@ -4,7 +4,7 @@ using System.Collections;
 public class GameStateScript : MonoBehaviour {
 
 	public enum GameState { GAMESTATE_PLAYING, GAMESTATE_PAUSED };
-	GameState gameState;
+	public GameState gameState;
 
 	float buttonWidth = 250.0f;
 
@@ -16,14 +16,14 @@ public class GameStateScript : MonoBehaviour {
 	public void Pause()
 	{
 		Debug.Log ("Pausing");
-		//Time.timeScale = 0;
+		Time.timeScale = 0;
 		gameState = GameState.GAMESTATE_PAUSED;
 	}
 
 	public void ContinuePlaying()
 	{
 		Debug.Log ("continuing playing");
-		//Time.timeScale = 1;
+		Time.timeScale = 1;
 		gameState = GameState.GAMESTATE_PLAYING;
 	}
 
@@ -40,13 +40,13 @@ public class GameStateScript : MonoBehaviour {
 			                             200.0f));
 			//GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 350, buttonWidth, 250));
 
-			if ( GUILayout.Button("Quit (esc to continue)" , style ) ) {
+			if ( GUILayout.Button("Quit" , style ) ) {
 				Application.Quit();
 			}
 			
-			//if ( GUILayout.Button("Continue" , style  ) ) {
-			//	ContinuePlaying();
-			//}
+			if ( GUILayout.Button("Continue" , style  ) ) {
+				ContinuePlaying();
+			}
 
 			GUILayout.EndArea ();
 		}

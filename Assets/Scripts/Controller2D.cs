@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class Controller2D : MonoBehaviour
 {
+	public Transform gameStateManager;
 
     public float MoveAngle;
 
     public float JumpForce = 20f;
     public float Gravity = 20f;
 
-    public float MoveSpeed = 10f;
-    public float RotationSpeed = 90f;
+	public float MoveSpeed; // = 10f;
+	public float RotationSpeed; // = 90f;
 
     public Collider2D GroundDetector;
 
@@ -38,36 +39,42 @@ public class Controller2D : MonoBehaviour
 		//animator = sprite.GetComponent<Animator>();
 		//Esko
 	}
-	
+
 	void Update()
     {
-
-		if (Input.GetButtonDown("Fire" + _PlayerID))
-	    {
-			_Player.ActionDown ();
-		}
-
-		if (Input.GetButtonUp ("Fire" + _PlayerID))
+		if ( gameStateManager.GetComponent<GameStateScript>().gameState != GameStateScript.GameState.GAMESTATE_PAUSED )
 		{
-			Vector2 input = new Vector2( Input.GetAxis("Horizontal" + _PlayerID), Input.GetAxis ("Vertical" + _PlayerID) );
-			_Player.ActionUp(input);
-		}
 
-		if (Input.GetButton( "Fire" + _PlayerID))
-		{
-			transform.GetComponent<PlayerScript>().ActionHeld();
+			if (Input.GetButtonDown("Fire" + _PlayerID))
+		    {
+				_Player.ActionDown ();
+			}
+
+			if (Input.GetButtonUp ("Fire" + _PlayerID))
+			{
+				Vector2 input = new Vector2( Input.GetAxis("Horizontal" + _PlayerID), Input.GetAxis ("Vertical" + _PlayerID) );
+				_Player.ActionUp(input);
+			}
+
+			if (Input.GetButton( "Fire" + _PlayerID))
+			{
+				transform.GetComponent<PlayerScript>().ActionHeld();
+			}
 		}
     }
 
     void FixedUpdate()
     {
+		Debug.Log (Time.fixedDeltaTime);
+		if ( gameStateManager.GetComponent<GameStateScript>().gameState != GameStateScript.GameState.GAMESTATE_PAUSED )
+		{
 
-        UpdateVertical();
+	        UpdateVertical();
 
-        UpdateHorizontal();
+	        UpdateHorizontal();
 
-        UpdateAngle();
-
+	        UpdateAngle();
+		}
         _OnGround = false;
 
     }
@@ -80,7 +87,7 @@ public class Controller2D : MonoBehaviour
 		transform.GetComponentInChildren<PlayerAnimatorControllerScript>().move = horizontalInput;
 		//Esko
 
-        var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*horizontalInput*MoveSpeed;
+        var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*horizontalInput*MoveSpeed*Time.fixedDeltaTime;
         if (_OnGround && !_Rotating)
             rigidbody2D.AddForce(mdir);
     }
@@ -89,7 +96,7 @@ public class Controller2D : MonoBehaviour
     {
 
         var vdir = Vectors.RotateVector2(Vector2.up, MoveAngle);
-        rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
+        rigidbody2D.AddForce(vdir*Gravity*Time.fixedDeltaTime);
 
         if (Input.GetButtonDown("Jump" + _PlayerID) && _OnGround)
         {
@@ -113,7 +120,7 @@ public class Controller2D : MonoBehaviour
         }
         else
         {
-            var rotamount = diff * Time.deltaTime * RotationSpeed;
+            var rotamount = diff * Time.fixedDeltaTime * RotationSpeed;
             euler.z += rotamount;
             _Rotating = true;
         }
