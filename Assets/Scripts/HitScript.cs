@@ -11,14 +11,15 @@ public class HitScript : MonoBehaviour {
 	public int health;
 	
 	// Use this for initialization
-	void Start () {
-		health = fullHealth;
-		
-	}
-	
-	void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
+    {
+        health = fullHealth;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
 	{
-		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet") )
+		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet")
+            && GetComponent<PlayerScript>().bullet != collision.collider.GetComponent<BulletScript>())
 		{
 			var mag = collision.relativeVelocity.magnitude;
 			if ( mag > armor) 
@@ -40,6 +41,8 @@ public class HitScript : MonoBehaviour {
 					
 				}
 				//Esko
+			    BloodSpill.transform.position = collision.contacts[0].point;
+			    BloodSpill.Play();
 			}
 		}
 	}

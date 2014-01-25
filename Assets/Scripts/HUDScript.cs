@@ -8,7 +8,7 @@ public class HUDScript : MonoBehaviour {
 	public Vector2 size = new Vector2(60,20);
 	public Texture2D progressBarEmpty;
 	public Texture2D progressBarFull;
-
+	public Texture2D playerIcon;
 	public Transform player;
 	public GUISkin mySkin;
 
@@ -28,9 +28,10 @@ public class HUDScript : MonoBehaviour {
 	{
 		//GUI.Box(new Rect(10,10,100,25), "Loader Menu");
 		GUI.skin = mySkin;
-		GUI.BeginGroup (new Rect (pos.x, pos.y, size.x, size.y));
+		GUI.Box(new Rect (pos.x, pos.y, 100, 100), playerIcon);	//face
+		GUI.BeginGroup (new Rect (pos.x + 15, pos.y+20, size.x, size.y));	//healthbar
 		GUI.Box (new Rect (0,0, size.x, size.y), progressBarEmpty);
-		
+
 		// draw the filled-in part:
 		GUI.BeginGroup (new Rect (0, 0, size.x * barDisplay, size.y));
 		GUI.Box (new Rect (0,0, size.x, size.y), progressBarFull);
