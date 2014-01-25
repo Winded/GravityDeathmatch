@@ -39,52 +39,41 @@ public class Controller2D : MonoBehaviour
             transform.rotation = Quaternion.Euler(euler);
         }
 
-        UpdateVSpeed();
+        UpdateVertical();
 
-        UpdateSpeed();
+        UpdateHorizontal();
 
     }
 
     void FixedUpdate()
     {
-        var vdir = Vectors.RotateVector2(Vector2.up, MoveAngle)*_VSpeed;
-        var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*_Speed;
-
-        var vel = vdir + mdir;
-        print(vel);
-        rigidbody2D.AddForce(vel);
-
         _OnGround = false;
     }
 
-    void UpdateSpeed()
+    void UpdateHorizontal()
     {
         var x = Input.GetAxis("Horizontal");
+        var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*x*MoveSpeed;
         if (_OnGround)
-            _Speed = x*MoveSpeed;
+            rigidbody2D.AddForce(mdir);
     }
 
-    void UpdateVSpeed()
+    void UpdateVertical()
     {
 
-        _VSpeed -= Gravity*Time.deltaTime;
+        var vdir = Vectors.RotateVector2(Vector2.up, MoveAngle);
+        rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && _OnGround)
         {
-            Jump();
+            rigidbody2D.AddForce(vdir*JumpForce*Time.deltaTime);
         }
-
-        // Remove gravitational pull when on ground (stops slippering)
-        if (_OnGround && _VSpeed < 0)
-            _VSpeed = 0;
 
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-
         _OnGround = true;
-
     }
 
     public bool IsGrounded()

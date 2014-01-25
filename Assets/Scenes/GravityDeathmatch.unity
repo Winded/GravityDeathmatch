@@ -590,8 +590,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveAngle: 0
-  JumpForce: 18
-  Gravity: 40
+  JumpForce: 50000
+  Gravity: -1000
   MoveSpeed: 50
   GroundDetector: {fileID: 1201012290}
 --- !u!61 &1201012290
