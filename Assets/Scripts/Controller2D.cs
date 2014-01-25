@@ -30,23 +30,24 @@ public class Controller2D : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            MoveAngle += 90f;
-            MoveAngle %= 360f;
-        }
-
-        UpdateVertical();
-
-        UpdateHorizontal();
-
-        UpdateAngle();
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			MoveAngle += 90f;
+			MoveAngle %= 360f;
+		}
+		
+		UpdateVertical();
+		
+		UpdateHorizontal();
+		
+		UpdateAngle(); 
 
     }
 
     void FixedUpdate()
     {
         _OnGround = false;
+
     }
 
     void UpdateHorizontal()
