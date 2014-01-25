@@ -23,14 +23,16 @@ public class Controller2D : MonoBehaviour
     private bool _Rotating;
 	private int _PlayerID;
 
+    private PlayerScript _Player;
+
     void Awake()
     {
-           
+        _Player = GetComponent<PlayerScript>();
+        _PlayerID = transform.GetComponent<PlayerScript>().playerID;
     }
 
     void Start()
     {
-		_PlayerID = transform.GetComponent<PlayerScript> ().playerID;
 
 		animator = sprite.GetComponent<Animator>();
 
@@ -39,21 +41,15 @@ public class Controller2D : MonoBehaviour
 	void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            MoveAngle += 90f;
-            MoveAngle %= 360f;
-        }
-
 		if (Input.GetButtonDown("Fire" + _PlayerID))
 	    {
-			transform.GetComponent<PlayerScript>().ActionDown ();
+			_Player.ActionDown ();
 		}
 
 		if (Input.GetButtonUp ("Fire" + _PlayerID))
 		{
 			Vector2 input = new Vector2( Input.GetAxis("Horizontal" + _PlayerID), Input.GetAxis ("Vertical" + _PlayerID) );
-			transform.GetComponent<PlayerScript>().ActionUp(input);
+			_Player.ActionUp(input);
 		}
 
 		if (Input.GetButton( "Fire" + _PlayerID))
