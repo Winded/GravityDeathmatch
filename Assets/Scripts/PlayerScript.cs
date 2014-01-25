@@ -21,7 +21,6 @@ public class PlayerScript : MonoBehaviour {
 
 	public void PutBulletOverhead()
 	{
-		Debug.Log ("overhead");
 		bullet.gameObject.SetActive (false);
 		bullet.IsAttached = true;
 
@@ -50,7 +49,7 @@ public class PlayerScript : MonoBehaviour {
 		if (bullet.GetComponent<BulletScript> ().IsAttached) 
 		{
 			shootDown += Time.deltaTime;
-			Debug.Log ("Powering up by " + Time.deltaTime + ", now " + shootDown);
+			//Debug.Log ("Powering up by " + Time.deltaTime + ", now " + shootDown);
 		} 
 	}
 
@@ -65,7 +64,7 @@ public class PlayerScript : MonoBehaviour {
 			Vector2 shootDir = Vectors.RotateVector2(input, angle);
 
 			float shootPower = Mathf.Min( shootMultiplier * shootDown, maxShootPower );
-			Debug.Log ( "Shoot with power " + shootMultiplier * shootDown );
+			//Debug.Log ( "Shoot with power " + shootMultiplier * shootDown );
 			Shoot ( rigidbody2D.velocity + shootPower * shootDir );
 			shootDown = 0.0f;
 		}
