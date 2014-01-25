@@ -1242,8 +1242,8 @@ MonoBehaviour:
   pickupDistance: 2
   pickupVelocity: .00999999978
   carriedBullet: {fileID: 766889722}
-  maxShootPower: 100
-  shootMultiplier: 5
+  maxShootPower: 0
+  shootMultiplier: 0
 --- !u!1 &1340870315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1341,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1682990195}
   - 60: {fileID: 1682990196}
+  - 114: {fileID: 1682990197}
   m_Layer: 0
   m_Name: ForbiddenZone
   m_TagString: Untagged
@@ -1355,7 +1356,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1682990194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.791671395, y: 1.04218698, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1370,15 +1371,35 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_Poly:
     m_Paths:
-    - - {x: -4.08982563, y: 9.11860752}
-      - {x: 5.683671, y: 9.06393623}
-      - {x: .587785184, y: -.809017062}
-      - {x: 11.0822887, y: 3.31096911}
-      - {x: 11.1935539, y: -4.73437357}
-      - {x: 5.23012972, y: -10.6734381}
-      - {x: -4.1628108, y: -10.607234}
-      - {x: -9.21128654, y: -5.27828217}
-      - {x: -9.29278183, y: 2.8247757}
+    - - {x: -4.32491732, y: 10.1641235}
+      - {x: 4.60658312, y: 10.1345558}
+      - {x: 10.5480804, y: 4.01065969}
+      - {x: 9.28070259, y: 3.85963917}
+      - {x: 3.90505743, y: 9.30983448}
+      - {x: -3.92335415, y: 9.41209888}
+      - {x: -9.3247366, y: 3.80068994}
+      - {x: -9.3328476, y: -3.86992908}
+      - {x: -4.06339645, y: -9.39974403}
+      - {x: 3.96036363, y: -9.46816444}
+      - {x: 9.43220711, y: -3.79846191}
+      - {x: 9.31345177, y: 3.78853774}
+      - {x: 10.5625772, y: 3.999825}
+      - {x: 10.4364595, y: -4.20377779}
+      - {x: 4.55281782, y: -10.4660606}
+      - {x: -5.26872444, y: -10.4742575}
+      - {x: -10.2510633, y: -4.50799704}
+      - {x: -10.6382599, y: 4.49917746}
+--- !u!114 &1682990197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682990194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb3483d5ca18f749a04cb0bba65c19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718755635
 GameObject:
   m_ObjectHideFlags: 0
