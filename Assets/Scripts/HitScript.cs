@@ -9,7 +9,7 @@ public class HitScript : MonoBehaviour {
 	public float armor;
     public ParticleSystem BloodSpill;
 
-	int health;
+	public int health;
 
 	// Use this for initialization
     private void Start()
@@ -19,7 +19,8 @@ public class HitScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
 	{
-		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet") )
+		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet")
+            && GetComponent<PlayerScript>().bullet != collision.collider.GetComponent<BulletScript>())
 		{
 			var mag = collision.relativeVelocity.magnitude;
 			if (mag > armor)
@@ -29,6 +30,18 @@ public class HitScript : MonoBehaviour {
 				//Esko
 
 				health -= (int)(damageMultiplier * (mag - armor));
+				Debug.Log ( "HEALTH:" + health );
+				//Esko
+				if (health <= 0)
+				{	
+					transform.GetComponentInChildren<PlayerAnimatorControllerScript> ().Killed = true;
+					while(transform.GetComponentInChildren<Animator>().animation.IsPlaying("death"))
+					{
+						;
+					}
+				
+				}
+				//Esko
 			    BloodSpill.transform.position = collision.contacts[0].point;
 			    BloodSpill.Play();
 			}
@@ -37,16 +50,18 @@ public class HitScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (health <= 0)
-		{
+		if (health <= 0) {
+
+			Debug.Log ("KILLED!!!!");
 			lives--;
 			health = fullHealth;
-			transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+			//transform.position = new Vector3 (0.0f, 0.0f, 0.0f);
 		}
-
-		if (lives <= 0)
-		{
-		    Destroy(transform.gameObject);
+		
+		if (lives <= 0) {
+			Destroy (transform.gameObject);
 		}
 	}
+
+
 }
