@@ -13,7 +13,10 @@ public class GravityScript : MonoBehaviour {
 	}
 
 	public void ApplyGravity(float magnitude) {
-		rigidbody2D.AddForce (Vectors.RotateVector2(Vector2.right, gravityAngle) * magnitude );
+		//if (!rigidbody2D.isKinematic)
+		//{
+			rigidbody2D.AddForce (Vectors.RotateVector2(Vector2.right, gravityAngle) * magnitude );
+		//}
 	}
 
 	void FixedUpdate() {
