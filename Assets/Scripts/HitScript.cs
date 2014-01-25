@@ -24,6 +24,10 @@ public class HitScript : MonoBehaviour {
 			var mag = collision.relativeVelocity.magnitude;
 			if (mag > armor)
 			{
+				//Esko
+				transform.GetComponentInChildren<PlayerAnimatorControllerScript>().gotHit = true;
+				//Esko
+
 				health -= (int)(damageMultiplier * (mag - armor));
 			    BloodSpill.transform.position = collision.contacts[0].point;
 			    BloodSpill.Play();

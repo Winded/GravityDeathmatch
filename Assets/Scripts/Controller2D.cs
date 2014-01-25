@@ -15,8 +15,9 @@ public class Controller2D : MonoBehaviour
     public Collider2D GroundDetector;
 
 	public float horizontalInput;
-
-	public Animator animator;
+	//Esko
+	//public Animator animator;
+	//Esko
 	public SpriteRenderer sprite;
 
     private bool _OnGround;
@@ -33,9 +34,9 @@ public class Controller2D : MonoBehaviour
 
     void Start()
     {
-
-		animator = sprite.GetComponent<Animator>();
-
+		//Esko
+		//animator = sprite.GetComponent<Animator>();
+		//Esko
 	}
 	
 	void Update()
@@ -74,7 +75,10 @@ public class Controller2D : MonoBehaviour
     void UpdateHorizontal()
     {
         var horizontalInput = Input.GetAxis("Horizontal" + _PlayerID );
-		animator.SetFloat("Speed", horizontalInput);
+
+		//Esko
+		transform.GetComponentInChildren<PlayerAnimatorControllerScript>().move = horizontalInput;
+		//Esko
 
         var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*horizontalInput*MoveSpeed;
         if (_OnGround && !_Rotating)
@@ -90,6 +94,10 @@ public class Controller2D : MonoBehaviour
         if (Input.GetButtonDown("Jump" + _PlayerID) && _OnGround)
         {
             rigidbody2D.AddForce(vdir*JumpForce*Time.deltaTime);
+
+			//Esko
+			transform.GetComponentInChildren<PlayerAnimatorControllerScript>().jumping = true;
+			//Esko
         }
 
     }
