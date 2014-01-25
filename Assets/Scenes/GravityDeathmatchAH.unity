@@ -3172,7 +3172,7 @@ GameObject:
   - 114: {fileID: 1029437635}
   m_Layer: 0
   m_Name: GameStateController
-  m_TagString: Untagged
+  m_TagString: GameState
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
