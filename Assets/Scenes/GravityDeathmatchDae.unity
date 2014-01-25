@@ -84,7 +84,7 @@ GameObject:
   - 4: {fileID: 199915740}
   - 60: {fileID: 199915741}
   - 114: {fileID: 199915742}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - 4: {fileID: 392523877}
   - 60: {fileID: 392523876}
   - 114: {fileID: 392523878}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - 4: {fileID: 841235880}
   - 60: {fileID: 841235881}
   - 114: {fileID: 841235882}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   - 4: {fileID: 925954103}
   - 60: {fileID: 925954104}
   - 114: {fileID: 925954105}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 939730069}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OctagonSectors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - 4: {fileID: 961221506}
   - 60: {fileID: 961221507}
   - 114: {fileID: 961221508}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1167,7 @@ GameObject:
   - 4: {fileID: 1524435423}
   - 60: {fileID: 1524435424}
   - 114: {fileID: 1524435425}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,7 +1273,7 @@ GameObject:
   - 4: {fileID: 1745251807}
   - 60: {fileID: 1745251808}
   - 114: {fileID: 1745251809}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1513,7 +1513,7 @@ GameObject:
   - 4: {fileID: 1995767060}
   - 60: {fileID: 1995767061}
   - 114: {fileID: 1995767062}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: OctagonSector6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

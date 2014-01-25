@@ -15,7 +15,7 @@ public class GravityControllerScript : MonoBehaviour {
 
 	public void SetGravity(int player) {
 		Vector2 pos = bullets [player].transform.position;
-		Collider2D collider = Physics2D.OverlapPoint (pos, 1 << 8);
+		Collider2D collider = Physics2D.OverlapPoint (pos, 1 << LayerMask.NameToLayer("Octagonsector"));
 		//if (Physics.Raycast (pos, new Vector3(0.0f, 0.0f, -1.0f), out hit) ) {
 		if ( collider != null ) {
 			bullets [player].GetComponent<GravityScript> ().gravityDir = collider.GetComponent<GravityAreaScript> ().gravityDir;
