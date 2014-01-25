@@ -22,7 +22,7 @@ public class Controller2D : MonoBehaviour
            
     }
 
-    private void Start()
+    void Start()
     {
 
     }
@@ -50,16 +50,17 @@ public class Controller2D : MonoBehaviour
 			transform.GetComponent<PlayerScript>().ActionHeld();
 		}
 
+    }
+
+    void FixedUpdate()
+    {
+
         UpdateVertical();
 
         UpdateHorizontal();
 
         UpdateAngle();
 
-    }
-
-    void FixedUpdate()
-    {
         _OnGround = false;
 
     }
@@ -89,14 +90,14 @@ public class Controller2D : MonoBehaviour
     {
         var euler = transform.rotation.eulerAngles;
         var diff = Angles.Difference(MoveAngle, euler.z);
-        var rotamount = diff*Time.deltaTime*RotationSpeed;
-        if (diff <= rotamount)
+        if (Mathf.Abs(diff) <= 2)
         {
             euler.z = euler.z + diff;
             _Rotating = false;
         }
         else
         {
+            var rotamount = diff * Time.deltaTime * RotationSpeed;
             euler.z += rotamount;
             _Rotating = true;
         }
@@ -105,18 +106,13 @@ public class Controller2D : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Octagon")
+        if (!other.isTrigger)
             _OnGround = true;
     }
 
     public bool IsGrounded()
     {
         return _OnGround;
-    }
-
-    public void Jump()
-    {
-        //_VSpeed = JumpForce;
     }
 
 }
