@@ -168,6 +168,7 @@ MonoBehaviour:
   move: 0
   jumping: 0
   gotHit: 0
+  Killed: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,16 +207,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 312facb914a86e447b3421a65b9235d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.5
+  armor: 8
   BloodSpill: {fileID: 0}
+  health: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,11 +231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 400002}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 0
+  shootDown: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
