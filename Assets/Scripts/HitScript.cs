@@ -85,7 +85,7 @@ public class HitScript : MonoBehaviour {
             GetComponent<Controller2D>().sprite.enabled = false;
             GetComponent<PlayerScript>().bullet.GetComponent<SpriteRenderer>().enabled = false;
             var gs = GameObject.FindGameObjectWithTag("GameState");
-            gs.GetComponent<GameStateScript>().gameState = GameStateScript.GameState.GAMESTATE_ENDED;
+            gs.GetComponent<GameStateScript>().EndGame(GetComponent<PlayerScript>().playerID);
         }
     }
 
