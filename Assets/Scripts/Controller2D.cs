@@ -14,42 +14,48 @@ public class Controller2D : MonoBehaviour
 
     public Collider2D GroundDetector;
 
+	public float horizontalInput;
+
+	public Animator animator;
+	public SpriteRenderer sprite;
+
     private bool _OnGround;
     private bool _Rotating;
+	private int _PlayerID;
+
+    private PlayerScript _Player;
 
     void Awake()
     {
-           
+        _Player = GetComponent<PlayerScript>();
+        _PlayerID = transform.GetComponent<PlayerScript>().playerID;
     }
 
     void Start()
     {
 
-    }
+		animator = sprite.GetComponent<Animator>();
 
-    void Update()
+	}
+	
+	void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            MoveAngle += 90f;
-            MoveAngle %= 360f;
-        }
+		if (Input.GetButtonDown("Fire" + _PlayerID))
+	    {
+			_Player.ActionDown ();
+		}
 
-		if (Input.GetKeyDown (KeyCode.Space))
+		if (Input.GetButtonUp ("Fire" + _PlayerID))
 		{
-			transform.GetComponent<PlayerScript>().ActionDown ();
+			Vector2 input = new Vector2( Input.GetAxis("Horizontal" + _PlayerID), Input.GetAxis ("Vertical" + _PlayerID) );
+			_Player.ActionUp(input);
 		}
-		if (Input.GetKeyUp( KeyCode.Space ) )
-		{
-			Vector2 input = new Vector2( Input.GetAxis("Horizontal"), Input.GetAxis ("Vertical") );
-			transform.GetComponent<PlayerScript>().ActionUp(input);
-		}
-		if (Input.GetKey (KeyCode.Space))
+
+		if (Input.GetButton( "Fire" + _PlayerID))
 		{
 			transform.GetComponent<PlayerScript>().ActionHeld();
 		}
-
     }
 
     void FixedUpdate()
@@ -67,8 +73,10 @@ public class Controller2D : MonoBehaviour
 
     void UpdateHorizontal()
     {
-        var x = Input.GetAxis("Horizontal");
-        var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*x*MoveSpeed;
+        var horizontalInput = Input.GetAxis("Horizontal" + _PlayerID );
+		animator.SetFloat("Speed", horizontalInput);
+
+        var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*horizontalInput*MoveSpeed;
         if (_OnGround && !_Rotating)
             rigidbody2D.AddForce(mdir);
     }
@@ -79,7 +87,7 @@ public class Controller2D : MonoBehaviour
         var vdir = Vectors.RotateVector2(Vector2.up, MoveAngle);
         rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && _OnGround)
+        if (Input.GetButtonDown("Jump" + _PlayerID) && _OnGround)
         {
             rigidbody2D.AddForce(vdir*JumpForce*Time.deltaTime);
         }
