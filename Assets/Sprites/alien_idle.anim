@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Idle
+  m_Name: alien_idle
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -17,10 +17,10 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: -0
-      value: {fileID: 21300000, guid: 5d06e774de2993a438023f9a696d87e0, type: 3}
+    - time: 0
+      value: {fileID: 21300000, guid: 9c05e9ebb853f944eb8ff67d7bacac84, type: 3}
     - time: .200000003
-      value: {fileID: 21300002, guid: 5d06e774de2993a438023f9a696d87e0, type: 3}
+      value: {fileID: 21300002, guid: 9c05e9ebb853f944eb8ff67d7bacac84, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212

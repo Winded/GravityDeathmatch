@@ -3,36 +3,55 @@ using System.Collections;
 
 public class PlayerAnimatorControllerScript : MonoBehaviour
 {
-
-	public float maxSpeed = 10f;
-	bool facingRight = true;
-    public Vector2 currentVelocity;
-
-    private Animator _Animator;
-
+	
+	//public float maxSpeed = 10f;
+	bool facingRight = false;
+	//public Vector2 currentVelocity;
+	public float move;
+	public bool jumping = false;
+	public bool gotHit = false;
+	
+	
+	private Animator _Animator;
+	
 	// Use this for initialization
-    private void Start()
-    {
-
-    }
-
-    private void Awake()
-    {
-        _Animator = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
+	private void Start()
+	{
+		
+	}
+	
+	private void Awake()
+	{
+		_Animator = GetComponent<Animator>();
+	}
+	
+	// Update is called once per frame
 	void FixedUpdate ()
 	{
+		
+		//move = Input.GetAxis("Horizontal");
+		_Animator.SetFloat("Speed", Mathf.Abs (move));
 
-	    //float move = Input.GetAxis("Horizontal");
-	    //_Animator.SetFloat("Speed", move);
-		if (_Animator.GetFloat("Speed") > 0 && facingRight)
+		
+		if (move > 0 && !facingRight)
 			Flip ();
-		if (_Animator.GetFloat("Speed") < 0 && !facingRight)
+		if (move < 0 && facingRight)
 			Flip ();
+
+		if (jumping)
+		{
+			_Animator.SetTrigger("Jumping");
+			jumping = !jumping;
+		}
+
+		if (gotHit)
+		{
+			_Animator.SetTrigger("Gothit");
+			gotHit = !gotHit;
+		}
+
 	}
-
+	
 	void Flip()
 	{
 		facingRight = !facingRight;
