@@ -589,10 +589,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VerticalDirection: {x: 0, y: 1}
-  MoveDirection: {x: 1, y: 0}
+  MoveAngle: 0
   JumpForce: 18
-  Gravity: 20
+  Gravity: 40
+  MoveSpeed: 50
   GroundDetector: {fileID: 1201012290}
 --- !u!61 &1201012290
 BoxCollider2D:

@@ -9,6 +9,8 @@ public class Controller2D : MonoBehaviour
     public float JumpForce = 20f;
     public float Gravity = 20f;
 
+    public float MoveSpeed = 10f;
+
     public Collider2D GroundDetector;
 
     private float _VSpeed;
@@ -49,7 +51,8 @@ public class Controller2D : MonoBehaviour
         var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*_Speed;
 
         var vel = vdir + mdir;
-        rigidbody2D.velocity = vel;
+        print(vel);
+        rigidbody2D.AddForce(vel);
 
         _OnGround = false;
     }
@@ -57,7 +60,8 @@ public class Controller2D : MonoBehaviour
     void UpdateSpeed()
     {
         var x = Input.GetAxis("Horizontal");
-        _Speed = x * 10;
+        if (_OnGround)
+            _Speed = x*MoveSpeed;
     }
 
     void UpdateVSpeed()
