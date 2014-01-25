@@ -27,13 +27,13 @@ public class ThrowScript : MonoBehaviour {
 			dragging = false;
 			Vector2 liftPos = thecamera.ScreenToWorldPoint(Input.mousePosition);
 			//Debug.Log ( "up at" + Input.mousePosition );
-			players[0].GetComponent<PlayerScript>().Shoot(startPos, liftPos - startPos);
+			players[0].GetComponent<PlayerScript>().Shoot(liftPos - startPos);
 		}
-
+/*
 		if (Input.GetKeyDown ("space")) 
 		{
 			gravityController.GetComponent<GravityControllerScript>().SetGravity(0);
 		}
-
+*/
 	}
 }

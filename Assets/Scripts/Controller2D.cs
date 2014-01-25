@@ -36,6 +36,19 @@ public class Controller2D : MonoBehaviour
             MoveAngle %= 360f;
         }
 
+		if (Input.GetKeyDown (KeyCode.Space))
+		{
+			transform.GetComponent<PlayerScript>().ActionDown ();
+		}
+		if (Input.GetKeyUp( KeyCode.Space ) )
+		{
+			transform.GetComponent<PlayerScript>().ActionUp();
+		}
+		if (Input.GetKey (KeyCode.Space))
+		{
+			transform.GetComponent<PlayerScript>().ActionHeld();
+		}
+
         UpdateVertical();
 
         UpdateHorizontal();

@@ -7,6 +7,10 @@ public class PlayerScript : MonoBehaviour {
 	public float pickupDistance;
 	public float pickupVelocity;
 	public Transform carriedBullet;
+	public float maxShootPower;
+	public float shootMultiplier;
+
+	float shootDown;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +35,37 @@ public class PlayerScript : MonoBehaviour {
 		//bullet.transform.localPosition = new Vector3 (0.0f, 2.0f, 0.0f);
 	}
 
-	public void Shoot(Vector2 from, Vector2 delta) {
+	public void ActionDown()
+	{
+		if (!bullet.GetComponent<BulletScript> ().IsAttached) 
+		{
+			GameObject.Find("GravityController").GetComponent<GravityControllerScript>().SetGravity(0);
+		}
+	}
+
+	public void ActionHeld()
+	{
+		if (bullet.GetComponent<BulletScript> ().IsAttached) 
+		{
+			shootDown += Time.deltaTime;
+			Debug.Log ("Powering up by " + Time.deltaTime + ", now " + shootDown);
+		} 
+	}
+
+	public void ActionUp()
+	{
+		if (bullet.GetComponent<BulletScript> ().IsAttached) 
+		{
+			float angle = transform.GetComponent<Controller2D>().MoveAngle;
+			Vector2 shootDir = Vectors.RotateVector2(new Vector3( 0.0f, 10.0f), angle);
+			float shootPower = Mathf.Min( shootMultiplier * shootDown, maxShootPower );
+			Debug.Log ( "Shoot with power " + shootMultiplier * shootDown );
+			Shoot ( rigidbody2D.velocity + shootPower * shootDir );
+			shootDown = 0.0f;
+		}
+	}
+
+	public void Shoot(Vector2 delta) {
 		if ( bullet.GetComponent<BulletScript> ().IsAttached )
 		{
 			carriedBullet.gameObject.SetActive(false);
