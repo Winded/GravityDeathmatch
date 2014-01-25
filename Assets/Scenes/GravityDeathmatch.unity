@@ -164,7 +164,7 @@ GameObject:
   - 4: {fileID: 219160225}
   - 212: {fileID: 219160226}
   - 61: {fileID: 219160227}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1010872361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Octagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - 4: {fileID: 1097054677}
   - 212: {fileID: 1097054678}
   - 61: {fileID: 1097054679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - 4: {fileID: 1141775237}
   - 212: {fileID: 1141775238}
   - 61: {fileID: 1141775239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - 4: {fileID: 1153955755}
   - 212: {fileID: 1153955756}
   - 61: {fileID: 1153955757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,9 +497,12 @@ GameObject:
   - 212: {fileID: 1201012286}
   - 61: {fileID: 1201012285}
   - 50: {fileID: 1201012284}
-  m_Layer: 0
+  - 58: {fileID: 1201012288}
+  - 114: {fileID: 1201012289}
+  - 61: {fileID: 1201012290}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -514,7 +517,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -526,10 +529,10 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1201012283}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 55955aa044e5f994590a0da17e779247, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .409999996, y: .639999986}
+  m_Center: {x: 0, y: .180000007}
 --- !u!212 &1201012286
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -551,7 +554,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 5b1f40c2353bcde4c9762d844297605d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43c136f987c1dbb4bbfa194e1fff4cfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1201012287
 Transform:
@@ -561,9 +564,47 @@ Transform:
   m_GameObject: {fileID: 1201012283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.852587223, y: -.137980461, z: 0}
-  m_LocalScale: {x: .75, y: 2.5, z: 1}
+  m_LocalScale: {x: 1.70000005, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!58 &1201012288
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 55955aa044e5f994590a0da17e779247, type: 2}
+  m_IsTrigger: 0
+  m_Radius: .150000006
+  m_Center: {x: 0, y: -.349999994}
+--- !u!114 &1201012289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VerticalDirection: {x: 0, y: 1}
+  MoveDirection: {x: 1, y: 0}
+  JumpForce: 18
+  Gravity: 20
+  GroundDetector: {fileID: 1201012290}
+--- !u!61 &1201012290
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201012283}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .25999999, y: .119999997}
+  m_Center: {x: 0, y: -.49000001}
 --- !u!1 &1795687646
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +615,7 @@ GameObject:
   - 4: {fileID: 1795687650}
   - 212: {fileID: 1795687647}
   - 61: {fileID: 1795687648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +677,7 @@ GameObject:
   - 4: {fileID: 1816441456}
   - 212: {fileID: 1816441457}
   - 61: {fileID: 1816441458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +739,7 @@ GameObject:
   - 4: {fileID: 1982555184}
   - 212: {fileID: 1982555185}
   - 61: {fileID: 1982555186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +801,7 @@ GameObject:
   - 4: {fileID: 2015072289}
   - 212: {fileID: 2015072290}
   - 61: {fileID: 2015072291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OctagonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
