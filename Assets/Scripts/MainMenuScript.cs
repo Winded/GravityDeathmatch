@@ -5,6 +5,7 @@ public class MainMenuScript : MonoBehaviour {
 
 	public enum MenuState { MENU_MAIN, MENU_CREDITS };
 	public float buttonWidth;
+	public float creditsWidth;
 
 	//public GUIStyle style;
 
@@ -24,7 +25,7 @@ public class MainMenuScript : MonoBehaviour {
 
 		if ( menuState == MenuState.MENU_MAIN) 
 		{
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, 100, buttonWidth, 600));
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 250, buttonWidth, 250));
 			if ( GUILayout.Button("Play", style) ) {
 				Application.LoadLevel("GravityDeathmatch");
 			}
@@ -39,13 +40,13 @@ public class MainMenuScript : MonoBehaviour {
 			GUILayout.EndArea ();
 		} else if ( menuState == MenuState.MENU_CREDITS ) 
 		{
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - 200, 100, 400, 400));
-			GUIStyle style2 = new GUIStyle("Credits");
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - 350, creditsWidth, 250));
+			GUIStyle style2 = new GUIStyle("TextArea");
 			style2.fontSize = 25;
-			GUILayout.TextArea("Gravity Deathmatch was made at\nGlobal/Finnish Game Jam 2014 by:\nAsdf Jklo - coding\nQwerty Uiop - graphics", style2);
+			GUILayout.TextArea("Gravity Deathmatch was made at Global/Finnish Game Jam 2014 by:\nAsdf Jklo - coding\nQwerty Uiop - graphics", style2);
 			GUILayout.EndArea ();
 
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, 500, buttonWidth, 200));
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 100, buttonWidth, 100));
 			if ( GUILayout.Button("Back", style ) ) {
 				menuState = MenuState.MENU_MAIN;
 			}
