@@ -7,7 +7,7 @@ public class ThrowScript : MonoBehaviour {
 	public Camera thecamera;
 	public Transform gravityController;
 
-	public Transform bullet;
+	public Transform[] players = new Transform[2];
 
 	bool dragging;
 	Vector2 startPos;
@@ -16,10 +16,6 @@ public class ThrowScript : MonoBehaviour {
 		dragging = false;
 	}
 
-	void Shoot(Vector2 from, Vector2 delta) {
-		bullet.transform.position = new Vector3 (from.x, from.y, 0.0f);
-		bullet.rigidbody2D.AddForce ( new Vector2(100.0f * delta.x, 100.0f * delta.y) );
-	}
 
 	// Update is called once per frame
 	void Update () {
@@ -31,7 +27,7 @@ public class ThrowScript : MonoBehaviour {
 			dragging = false;
 			Vector2 liftPos = thecamera.ScreenToWorldPoint(Input.mousePosition);
 			//Debug.Log ( "up at" + Input.mousePosition );
-			Shoot(startPos, liftPos - startPos);
+			players[0].GetComponent<PlayerScript>().Shoot(startPos, liftPos - startPos);
 		}
 
 		if (Input.GetKeyDown ("space")) 
