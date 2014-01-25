@@ -11,8 +11,6 @@ public static class Vectors
         var sn = Mathf.Sin(theta);
         var x = vector.x * cs - vector.y * sn; 
         var y = vector.x * sn + vector.y * cs;
-        //Debug.Log(cs + ", " + sn);
-        //Debug.Log(vector);
         return new Vector2(x, y);
     }
 
