@@ -366,7 +366,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.22186279
+  orthographic size: 13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2156,6 +2156,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 8f0dcd197247f4dc7a8be33f7afa54fd, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f0dcd197247f4dc7a8be33f7afa54fd, type: 2}
   m_RootGameObject: {fileID: 1802198644}
@@ -2301,15 +2305,15 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1202516237}
   m_GameObject: {fileID: 622635527}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 312facb914a86e447b3421a65b9235d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.5
+  armor: 8
   BloodSpill: {fileID: 0}
   health: 0
 --- !u!114 &622635531
@@ -2326,11 +2330,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 971792704}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 0
+  shootDown: 0
 --- !u!61 &622635532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2573,54 +2578,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!1 &725995310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-  m_PrefabInternal: {fileID: 790854045}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 725995312}
-  - 114: {fileID: 725995311}
-  m_Layer: 0
-  m_Name: GUI Alien
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &725995311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db,
-    type: 2}
-  m_PrefabInternal: {fileID: 790854045}
-  m_GameObject: {fileID: 725995310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a04d8bc22f084de0956118dc1e7e49e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pos: {x: 0, y: 8}
-  barDisplay: 1
-  size: {x: 250, y: 60}
-  progressBarEmpty: {fileID: 2800000, guid: e3687e402f8194fcea491f025f6bc374, type: 3}
-  progressBarFull: {fileID: 2800000, guid: db08d7027eeb8d34282076db05ec5353, type: 3}
-  playerIcon: {fileID: 2800000, guid: 3829df747d5934c35a63feb335c3ce08, type: 3}
-  player: {fileID: 1201012287}
-  mySkin: {fileID: 11400000, guid: d632b4bbb39234c3bbccc2af8d40a088, type: 2}
-  side: 1
---- !u!4 &725995312
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-  m_PrefabInternal: {fileID: 790854045}
-  m_GameObject: {fileID: 725995310}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .944477081, y: -.779973984, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &733555831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,74 +2713,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1201012287}
---- !u!1001 &790854045
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: .944477081
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -.779973984
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: playerIcon
-      value: 
-      objectReference: {fileID: 2800000, guid: 3829df747d5934c35a63feb335c3ce08, type: 3}
-    - target: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1201012287}
-    - target: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: pos.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: pos.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: barDisplay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: m_Name
-      value: GUI Alien
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-      propertyPath: side
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f5b4c67ea324c4e9485e526c39d3f7db, type: 2}
-  m_RootGameObject: {fileID: 725995310}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &841255461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,8 +2875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.5
+  armor: 8
   BloodSpill: {fileID: 1884592422}
   health: 0
 --- !u!114 &950296626
@@ -3004,11 +2893,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 313158922}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 0
+  shootDown: 0
 --- !u!61 &950296627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3657,8 +3547,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.5
+  armor: 8
   BloodSpill: {fileID: 472852043}
   health: 0
 --- !u!114 &1201012293
@@ -3675,11 +3565,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1426643394}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 766889722}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 1
+  shootDown: 0
 --- !u!1001 &1202516237
 Prefab:
   m_ObjectHideFlags: 0

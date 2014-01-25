@@ -23,6 +23,7 @@ public class HitScript : MonoBehaviour {
             && GetComponent<PlayerScript>().bullet != collision.collider.GetComponent<BulletScript>())
 		{
 			var mag = collision.relativeVelocity.magnitude;
+			Debug.Log ("collision: " + mag);
 			if ( mag > armor) 
 			{
 				//Esko
@@ -35,11 +36,7 @@ public class HitScript : MonoBehaviour {
 				if (health <= 0)
 				{	
 					transform.GetComponentInChildren<PlayerAnimatorControllerScript> ().Killed = true;
-					while(transform.GetComponentInChildren<Animator>().animation.IsPlaying("death"))
-					{
-						;
-					}
-					
+
 				}
 				//Esko
 			    BloodSpill.transform.position = collision.contacts[0].point;
