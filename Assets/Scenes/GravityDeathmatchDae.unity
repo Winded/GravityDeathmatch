@@ -89,7 +89,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &28684353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,8 +947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156dc6b792438c141b6ae10a240e8bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  currentVelocity: {x: 0, y: 0}
+  move: 0
+  jumping: 0
+  gotHit: 0
 --- !u!95 &622549103
 Animator:
   serializedVersion: 2
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  BloodSpill: {fileID: 0}
 --- !u!114 &622635531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1079,7 +1081,6 @@ MonoBehaviour:
   RotationSpeed: 10
   GroundDetector: {fileID: 622635532}
   horizontalInput: 0
-  animator: {fileID: 0}
   sprite: {fileID: 622549101}
 --- !u!58 &622635534
 CircleCollider2D:
@@ -1231,8 +1232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156dc6b792438c141b6ae10a240e8bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  currentVelocity: {x: 0, y: 0}
+  move: 0
+  jumping: 0
+  gotHit: 0
 --- !u!212 &733555835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1427,6 +1429,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  BloodSpill: {fileID: 0}
 --- !u!114 &950296626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,7 +1480,6 @@ MonoBehaviour:
   RotationSpeed: 10
   GroundDetector: {fileID: 950296627}
   horizontalInput: 0
-  animator: {fileID: 0}
   sprite: {fileID: 1140274611}
 --- !u!58 &950296629
 CircleCollider2D:
@@ -1766,8 +1768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156dc6b792438c141b6ae10a240e8bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  currentVelocity: {x: 0, y: 0}
+  move: 0
+  jumping: 0
+  gotHit: 0
 --- !u!212 &1140274611
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2011,7 +2014,6 @@ MonoBehaviour:
   RotationSpeed: 10
   GroundDetector: {fileID: 1201012290}
   horizontalInput: 0
-  animator: {fileID: 0}
   sprite: {fileID: 622549101}
 --- !u!61 &1201012290
 BoxCollider2D:
@@ -2054,6 +2056,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  BloodSpill: {fileID: 0}
 --- !u!114 &1201012293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2600,6 +2603,56 @@ Transform:
   m_LocalScale: {x: 7.5, y: .099999994, z: 1}
   m_Children: []
   m_Father: {fileID: 1010872361}
+--- !u!1 &1799774054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1799774056}
+  - 114: {fileID: 1799774055}
+  - 114: {fileID: 1799774057}
+  m_Layer: 0
+  m_Name: GameStateController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1799774055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799774054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6df0fbbecd82a640874a6d0b6195a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1799774056
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799774054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &1799774057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799774054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6df0fbbecd82a640874a6d0b6195a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816441455
 GameObject:
   m_ObjectHideFlags: 0
