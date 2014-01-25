@@ -11,10 +11,19 @@ public class HUDScript : MonoBehaviour {
 	public Texture2D playerIcon;
 	public Transform player;
 	public GUISkin mySkin;
+	//public int side = 0;	//0 = left, 1 = right
+	public enum sideEnum {LEFT, RIGHT};
+	public sideEnum side = sideEnum.LEFT;
 
+	int extraOffset = 0;	//moves life sprites to right if the bar is on right
 	// Use this for initialization
 	void Start () {
-	
+		if (side == sideEnum.RIGHT) 
+		{
+			//put stuff to the right:
+			pos.x = Screen.width - 175;
+			extraOffset = 84;
+		}
 	}
 	
 	// Update is called once per frame
@@ -27,9 +36,30 @@ public class HUDScript : MonoBehaviour {
 	void OnGUI()
 	{
 		//GUI.Box(new Rect(10,10,100,25), "Loader Menu");
+
+
 		GUI.skin = mySkin;
-		GUI.Box(new Rect (pos.x, pos.y, 100, 100), playerIcon);	//face
-		GUI.BeginGroup (new Rect (pos.x + 15, pos.y+20, size.x, size.y));	//healthbar
+		int lives = (player.GetComponent<HitScript> ().lives);
+
+
+		if (side == sideEnum.LEFT)
+		{
+			for (int i = 0; i < lives; i++) 
+			{
+				GUI.Box(new Rect (pos.x + 22*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
+			}
+		}
+		else
+		{
+			for (int i = 0; i < lives; i++) 
+			{
+				GUI.Box(new Rect (pos.x - 22*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
+			}
+		}
+
+
+		//healthbar
+		GUI.BeginGroup (new Rect (pos.x-32, pos.y+20, size.x, size.y));	//healthbar
 		GUI.Box (new Rect (0,0, size.x, size.y), progressBarEmpty);
 
 		// draw the filled-in part:

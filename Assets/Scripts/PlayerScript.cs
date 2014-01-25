@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour {
 	public int playerID;
 
 
-	float shootDown;
+	public float shootDown;
 
 	// Use this for initialization
 	void Start () {
