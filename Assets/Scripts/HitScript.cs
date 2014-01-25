@@ -7,6 +7,7 @@ public class HitScript : MonoBehaviour {
 	public int fullHealth;
 	public float damageMultiplier;
 	public float armor;
+    public ParticleSystem BloodSpill;
 
 	public int health;
 	
