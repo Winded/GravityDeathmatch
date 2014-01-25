@@ -52,12 +52,16 @@ public class PlayerScript : MonoBehaviour {
 		} 
 	}
 
-	public void ActionUp()
+	public void ActionUp(Vector2 input)
 	{
 		if (bullet.GetComponent<BulletScript> ().IsAttached) 
 		{
 			float angle = transform.GetComponent<Controller2D>().MoveAngle;
-			Vector2 shootDir = Vectors.RotateVector2(new Vector3( 0.0f, 10.0f), angle);
+
+			input.y += 1.0f;
+			//Vector2 shootDir = Vectors.RotateVector2(new Vector3( 0.0f, 10.0f), angle);
+			Vector2 shootDir = Vectors.RotateVector2(input, angle);
+
 			float shootPower = Mathf.Min( shootMultiplier * shootDown, maxShootPower );
 			Debug.Log ( "Shoot with power " + shootMultiplier * shootDown );
 			Shoot ( rigidbody2D.velocity + shootPower * shootDir );

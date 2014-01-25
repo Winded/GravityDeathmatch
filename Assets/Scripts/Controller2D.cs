@@ -42,7 +42,8 @@ public class Controller2D : MonoBehaviour
 		}
 		if (Input.GetKeyUp( KeyCode.Space ) )
 		{
-			transform.GetComponent<PlayerScript>().ActionUp();
+			Vector2 input = new Vector2( Input.GetAxis("Horizontal"), Input.GetAxis ("Vertical") );
+			transform.GetComponent<PlayerScript>().ActionUp(input);
 		}
 		if (Input.GetKey (KeyCode.Space))
 		{
