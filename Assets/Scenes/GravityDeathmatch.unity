@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998c12ffe3095b84983e18a027ee7092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 265183102}
+  bullet: {fileID: 265183108}
   pickupDistance: 2
   pickupVelocity: .00999999978
   carriedBullet: {fileID: 766889722}
@@ -1392,7 +1392,7 @@ Prefab:
     - target: {fileID: 11400008, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 265183102}
+      objectReference: {fileID: 265183108}
     - target: {fileID: 11400002, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
       propertyPath: sprite
       value: 

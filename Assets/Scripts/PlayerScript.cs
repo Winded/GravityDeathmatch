@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
-	public Transform bullet;
+	public BulletScript bullet;
 	public float pickupDistance;
 	public float pickupVelocity;
 	public Transform carriedBullet;
@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour {
 	{
 		Debug.Log ("overhead");
 		bullet.gameObject.SetActive (false);
-		bullet.GetComponent<BulletScript> ().IsAttached = true;
+		bullet.IsAttached = true;
 
 		carriedBullet.gameObject.SetActive (true);
 
@@ -81,7 +81,7 @@ public class PlayerScript : MonoBehaviour {
 			//bullet.rigidbody2D.isKinematic = false;
 			float angle = transform.GetComponent<Controller2D>().MoveAngle;
 			Vector2 offset = Vectors.RotateVector2(new Vector3( 0.0f, 2.0f), angle);
-			bullet.position = transform.position + new Vector3( offset.x, offset.y, 0.0f );
+			bullet.transform.position = transform.position + new Vector3( offset.x, offset.y, 0.0f );
 			bullet.rigidbody2D.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
 			bullet.rigidbody2D.AddForce ( new Vector2(100.0f * delta.x, 100.0f * delta.y) );
 		}
