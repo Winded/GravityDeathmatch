@@ -39,7 +39,9 @@ public class PlayerScript : MonoBehaviour {
 			bullet.GetComponent<BulletScript> ().IsAttached = false;
 			//bullet.transform.parent = null;
 			//bullet.rigidbody2D.isKinematic = false;
-			bullet.position = transform.position + new Vector3( 0.0f, 2.0f, 0.0f);
+			float angle = transform.GetComponent<Controller2D>().MoveAngle;
+			Vector2 offset = Vectors.RotateVector2(new Vector3( 0.0f, 2.0f), angle);
+			bullet.position = transform.position + new Vector3( offset.x, offset.y, 0.0f );
 			bullet.rigidbody2D.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
 			bullet.rigidbody2D.AddForce ( new Vector2(100.0f * delta.x, 100.0f * delta.y) );
 		}
