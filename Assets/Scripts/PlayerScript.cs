@@ -9,6 +9,8 @@ public class PlayerScript : MonoBehaviour {
 	public Transform carriedBullet;
 	public float maxShootPower;
 	public float shootMultiplier;
+	public int playerID;
+
 
 	float shootDown;
 
