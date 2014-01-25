@@ -10,12 +10,12 @@ public class Controller2D : MonoBehaviour
     public float Gravity = 20f;
 
     public float MoveSpeed = 10f;
+    public float RotationSpeed = 90f;
 
     public Collider2D GroundDetector;
 
-    //private float _VSpeed;
-    //private float _Speed;
     private bool _OnGround;
+    private bool _Rotating;
 
     void Awake()
     {
@@ -35,13 +35,12 @@ public class Controller2D : MonoBehaviour
             MoveAngle += 90f;
             MoveAngle %= 360f;
         }
-		var euler = transform.rotation.eulerAngles;
-		euler.z = MoveAngle;
-		transform.rotation = Quaternion.Euler(euler);
 
         UpdateVertical();
 
         UpdateHorizontal();
+
+        UpdateAngle();
 
     }
 
@@ -54,7 +53,7 @@ public class Controller2D : MonoBehaviour
     {
         var x = Input.GetAxis("Horizontal");
         var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*x*MoveSpeed;
-        if (_OnGround)
+        if (_OnGround && !_Rotating)
             rigidbody2D.AddForce(mdir);
     }
 
@@ -62,7 +61,7 @@ public class Controller2D : MonoBehaviour
     {
 
         var vdir = Vectors.RotateVector2(Vector2.up, MoveAngle);
-        //rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
+        rigidbody2D.AddForce(vdir*Gravity*Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && _OnGround)
         {
@@ -71,9 +70,28 @@ public class Controller2D : MonoBehaviour
 
     }
 
+    void UpdateAngle()
+    {
+        var euler = transform.rotation.eulerAngles;
+        var diff = Angles.Difference(MoveAngle, euler.z);
+        var rotamount = diff*Time.deltaTime*RotationSpeed;
+        if (diff <= rotamount)
+        {
+            euler.z = euler.z + diff;
+            _Rotating = false;
+        }
+        else
+        {
+            euler.z += rotamount;
+            _Rotating = true;
+        }
+        transform.eulerAngles = euler;
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
-        _OnGround = true;
+        if (other.gameObject.tag == "Octagon")
+            _OnGround = true;
     }
 
     public bool IsGrounded()

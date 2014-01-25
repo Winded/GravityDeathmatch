@@ -30,7 +30,7 @@ public class GravityControllerScript : MonoBehaviour {
 	void FixedUpdate()
 	{
 		bullets [0].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
-		players [0].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
+		//players [0].GetComponent<GravityScript>().ApplyGravity (gravityMagnitude);
 	}
 
 	// Update is called once per frame
