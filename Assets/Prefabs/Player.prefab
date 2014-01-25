@@ -165,8 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156dc6b792438c141b6ae10a240e8bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  currentVelocity: {x: 0, y: 0}
+  move: 0
+  jumping: 0
+  gotHit: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,14 +179,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 0}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 6100002}
   horizontalInput: 0
-  animator: {fileID: 0}
   sprite: {fileID: 21200000}
 --- !u!114 &11400004
 MonoBehaviour:
@@ -214,6 +215,7 @@ MonoBehaviour:
   fullHealth: 100
   damageMultiplier: 2
   armor: 2
+  BloodSpill: {fileID: 0}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

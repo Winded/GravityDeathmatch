@@ -774,6 +774,10 @@ Prefab:
       propertyPath: m_Name
       value: Sprite1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
+      propertyPath: gameStateManager
+      value: 
+      objectReference: {fileID: 1799774056}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
   m_RootGameObject: {fileID: 1201012283}
@@ -1074,11 +1078,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 0}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 622635532}
   horizontalInput: 0
   sprite: {fileID: 622549101}
@@ -1473,11 +1478,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 1799774056}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 950296627}
   horizontalInput: 0
   sprite: {fileID: 1140274611}
@@ -2007,11 +2013,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 1799774056}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 1201012290}
   horizontalInput: 0
   sprite: {fileID: 622549101}
@@ -2612,7 +2619,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1799774056}
   - 114: {fileID: 1799774055}
-  - 114: {fileID: 1799774057}
   m_Layer: 0
   m_Name: GameStateController
   m_TagString: Untagged
@@ -2631,6 +2637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6df0fbbecd82a640874a6d0b6195a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!4 &1799774056
 Transform:
   m_ObjectHideFlags: 0
@@ -2642,17 +2649,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &1799774057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1799774054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6df0fbbecd82a640874a6d0b6195a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1816441455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,7 +2868,7 @@ MonoBehaviour:
   players:
   - {fileID: 950296623}
   - {fileID: 1201012287}
-  gravityMagnitude: 10
+  gravityMagnitude: 500
 --- !u!4 &2024002716
 Transform:
   m_ObjectHideFlags: 0
@@ -2935,6 +2931,10 @@ Prefab:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 265183108}
+    - target: {fileID: 11400002, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
+      propertyPath: gameStateManager
+      value: 
+      objectReference: {fileID: 1799774056}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
   m_RootGameObject: {fileID: 950296622}
