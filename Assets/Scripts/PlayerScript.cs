@@ -95,5 +95,10 @@ public class PlayerScript : MonoBehaviour {
 		{
 			PutBulletOverhead();
 		}
+
+		if (Vector3.Distance (bullet.transform.position, transform.position) >= 40.0f)
+		{
+			PutBulletOverhead();
+		}
 	}
 }
