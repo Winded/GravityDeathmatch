@@ -9,7 +9,7 @@ public class HitScript : MonoBehaviour {
 	public float armor;
     public ParticleSystem BloodSpill;
 
-	int health;
+	public int health;
 
 	// Use this for initialization
 <<<<<<< HEAD
