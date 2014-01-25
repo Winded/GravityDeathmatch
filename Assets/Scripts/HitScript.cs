@@ -4,12 +4,12 @@ using System.Collections;
 public class HitScript : MonoBehaviour {
 
 	public int lives;
-	public int fullHealth;
+	public float fullHealth;
 	public float damageMultiplier;
 	public float armor;
     public ParticleSystem BloodSpill;
 
-	public int health;
+	public float health;
 
 	// Use this for initialization
     private void Start()

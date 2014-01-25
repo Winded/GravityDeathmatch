@@ -43,7 +43,7 @@ public class MainMenuScript : MonoBehaviour {
 			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - 350, creditsWidth, 250));
 			GUIStyle style2 = new GUIStyle("TextArea");
 			style2.fontSize = 25;
-			GUILayout.TextArea("Gravity Deathmatch was made at Global/Finnish Game Jam 2014 by:\nAsdf Jklo - coding\nQwerty Uiop - graphics", style2);
+			GUILayout.TextArea("Gravity Deathmatch was made at Global/Finnish Game Jam 2014 by:\nProgramming: Timo Kellomäki, Antton Hytönen, Esko Vankka & Tuomas Salmi\nGraphics: Sertuzzi & Tuomas Salmi\nMusic: Asko Pennanen\nSound effects: Jonne Kokkonen & Konstamikko Korhonen", style2);
 			GUILayout.EndArea ();
 
 			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 100, buttonWidth, 100));
