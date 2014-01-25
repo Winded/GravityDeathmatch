@@ -1891,6 +1891,10 @@ Prefab:
       propertyPath: BloodSpill
       value: 
       objectReference: {fileID: 200306690}
+    - target: {fileID: 11400002, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
+      propertyPath: gameStateManager
+      value: 
+      objectReference: {fileID: 1819458852}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
   m_RootGameObject: {fileID: 1201012283}
@@ -2148,6 +2152,7 @@ MonoBehaviour:
   damageMultiplier: 2
   armor: 2
   BloodSpill: {fileID: 0}
+  health: 0
 --- !u!114 &622635531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2191,11 +2196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 0}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 622635532}
   horizontalInput: 0
   sprite: {fileID: 622549101}
@@ -3661,6 +3667,7 @@ MonoBehaviour:
   damageMultiplier: 2
   armor: 2
   BloodSpill: {fileID: 762037975}
+  health: 0
 --- !u!114 &950296626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3704,11 +3711,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 1819458852}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 950296627}
   horizontalInput: 0
   sprite: {fileID: 1140274611}
@@ -4239,11 +4247,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b245fa3b1dbb7a4bad0333365b2906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 1819458852}
   MoveAngle: 0
   JumpForce: 50000
   Gravity: -1000
-  MoveSpeed: 50
-  RotationSpeed: 10
+  MoveSpeed: 5000
+  RotationSpeed: 8
   GroundDetector: {fileID: 1201012290}
   horizontalInput: 0
   sprite: {fileID: 622549101}
@@ -4289,6 +4298,7 @@ MonoBehaviour:
   damageMultiplier: 2
   armor: 2
   BloodSpill: {fileID: 200306690}
+  health: 0
 --- !u!114 &1201012293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4982,6 +4992,45 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1.00000012, y: 1}
   m_Center: {x: -3.44589353e-08, y: 7.62939453e-06}
+--- !u!1 &1819458851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1819458852}
+  - 114: {fileID: 1819458853}
+  m_Layer: 0
+  m_Name: GameStateController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1819458852
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819458851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &1819458853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819458851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6df0fbbecd82a640874a6d0b6195a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!1 &1982555183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,6 +5255,10 @@ Prefab:
       propertyPath: BloodSpill
       value: 
       objectReference: {fileID: 762037975}
+    - target: {fileID: 11400002, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
+      propertyPath: gameStateManager
+      value: 
+      objectReference: {fileID: 1819458852}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
   m_RootGameObject: {fileID: 950296622}
