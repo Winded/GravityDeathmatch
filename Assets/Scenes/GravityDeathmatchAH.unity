@@ -1895,6 +1895,10 @@ Prefab:
       propertyPath: gameStateManager
       value: 
       objectReference: {fileID: 1819458852}
+    - target: {fileID: 11400008, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
+      propertyPath: pickupDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
   m_RootGameObject: {fileID: 1201012283}
@@ -3681,7 +3685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
-  pickupDistance: 2
+  pickupDistance: 2.5
   pickupVelocity: .00999999978
   carriedBullet: {fileID: 313158922}
   maxShootPower: 100
@@ -4312,7 +4316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1426643394}
-  pickupDistance: 2
+  pickupDistance: 2.5
   pickupVelocity: .00999999978
   carriedBullet: {fileID: 766889722}
   maxShootPower: 100
@@ -5259,6 +5263,10 @@ Prefab:
       propertyPath: gameStateManager
       value: 
       objectReference: {fileID: 1819458852}
+    - target: {fileID: 11400008, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
+      propertyPath: pickupDistance
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63512a08bfcd3874f8dc8635eff75e2d, type: 2}
   m_RootGameObject: {fileID: 950296622}

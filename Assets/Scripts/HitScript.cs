@@ -19,7 +19,8 @@ public class HitScript : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
 	{
-		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet") )
+		if ( collision.collider.gameObject.layer == LayerMask.NameToLayer("Bullet")
+            && GetComponent<PlayerScript>().bullet != collision.collider.GetComponent<BulletScript>())
 		{
 			var mag = collision.relativeVelocity.magnitude;
 			if (mag > armor)
