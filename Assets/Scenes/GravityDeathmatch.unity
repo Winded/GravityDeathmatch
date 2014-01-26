@@ -314,7 +314,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 847f18030686d254eb8af750a9131d71, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .629999995
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3091,6 +3091,8 @@ MonoBehaviour:
   GettingHitSound: {fileID: 8300000, guid: 7e3a828900f25ed448007f17d04b1b90, type: 3}
   DyingSound: {fileID: 8300000, guid: aa42eb564addc4d4d8a214ddd67e6cea, type: 3}
   JumpingSound: {fileID: 8300000, guid: 8afecba4c38190540a495860039d2907, type: 3}
+  ChangeGravitySound: {fileID: 8300000, guid: 1bfe793b71e983e418fd350e06a7f0d6, type: 3}
+  MissedShotSound: {fileID: 8300000, guid: 40013e89d63340d41961a19d7e4dccec, type: 3}
 --- !u!1001 &956486832
 Prefab:
   m_ObjectHideFlags: 0
@@ -3552,6 +3554,8 @@ MonoBehaviour:
   GettingHitSound: {fileID: 8300000, guid: 58c1a983254b771419034ad0df647f02, type: 3}
   DyingSound: {fileID: 8300000, guid: 289f157f792c98348b9b632eb4914ebe, type: 3}
   JumpingSound: {fileID: 8300000, guid: 8afecba4c38190540a495860039d2907, type: 3}
+  ChangeGravitySound: {fileID: 8300000, guid: 1bfe793b71e983e418fd350e06a7f0d6, type: 3}
+  MissedShotSound: {fileID: 8300000, guid: 40013e89d63340d41961a19d7e4dccec, type: 3}
 --- !u!4 &1201012287
 Transform:
   m_ObjectHideFlags: 0
@@ -4028,6 +4032,45 @@ PolygonCollider2D:
     - - {x: -9.00286102, y: 3.69303417}
       - {x: -3.70432186, y: 8.99587917}
       - {x: -.00150207803, y: -.00293412432}
+--- !u!1 &1573275439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1573275441}
+  - 114: {fileID: 1573275440}
+  m_Layer: 0
+  m_Name: GeneralSoundEffectHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1573275440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1573275439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722e85b4d987d8544a73fd0c074b1eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MissedShotSound: {fileID: 8300000, guid: 40013e89d63340d41961a19d7e4dccec, type: 3}
+--- !u!4 &1573275441
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1573275439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.12513542, y: 2.1612134, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1682990194
 GameObject:
   m_ObjectHideFlags: 0
