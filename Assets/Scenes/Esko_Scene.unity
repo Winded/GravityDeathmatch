@@ -2301,15 +2301,15 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1202516237}
   m_GameObject: {fileID: 622635527}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 312facb914a86e447b3421a65b9235d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.70000005
+  armor: 6
   BloodSpill: {fileID: 0}
   health: 0
 --- !u!114 &622635531
@@ -2326,11 +2326,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 971792704}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 0
+  shootDown: 0
+  TimeUntilAutoPickup: 5
 --- !u!61 &622635532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2561,6 +2563,7 @@ MonoBehaviour:
   playerIcon: {fileID: 2800000, guid: 546f185a0ba7c4e33bf505a89c07cca1, type: 3}
   player: {fileID: 950296623}
   mySkin: {fileID: 11400000, guid: d632b4bbb39234c3bbccc2af8d40a088, type: 2}
+  side: 0
 --- !u!4 &691678101
 Transform:
   m_ObjectHideFlags: 0
@@ -2608,6 +2611,7 @@ MonoBehaviour:
   playerIcon: {fileID: 2800000, guid: 2a19cc2c6069b496ea47bdd4ed1199cc, type: 3}
   player: {fileID: 1201012287}
   mySkin: {fileID: 11400000, guid: d632b4bbb39234c3bbccc2af8d40a088, type: 2}
+  side: 0
 --- !u!4 &725995312
 Transform:
   m_ObjectHideFlags: 0
@@ -2963,8 +2967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.70000005
+  armor: 6
   BloodSpill: {fileID: 1884592422}
   health: 0
 --- !u!114 &950296626
@@ -2981,11 +2985,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 313158922}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 0
+  shootDown: 0
+  TimeUntilAutoPickup: 5
 --- !u!61 &950296627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3070,7 +3076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ce327fe4985744e85451f63ccf7c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingSound: {fileID: 0}
+  ShootingSound: {fileID: 8300000, guid: 2f20523ced0a13b4ea7570f1bfa8f44c, type: 3}
   GettingHitSound: {fileID: 8300000, guid: 7e3a828900f25ed448007f17d04b1b90, type: 3}
   DyingSound: {fileID: 8300000, guid: aa42eb564addc4d4d8a214ddd67e6cea, type: 3}
   JumpingSound: {fileID: 8300000, guid: d8142345588cb426da05ac0bab42e077, type: 3}
@@ -3231,6 +3237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
+  EndGamePlayer1: {fileID: 0}
+  EndGamePlayer2: {fileID: 0}
+  EndGameInstruction: {fileID: 0}
 --- !u!4 &1029437636
 Transform:
   m_ObjectHideFlags: 0
@@ -3575,7 +3584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ce327fe4985744e85451f63ccf7c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingSound: {fileID: 0}
+  ShootingSound: {fileID: 8300000, guid: 2f20523ced0a13b4ea7570f1bfa8f44c, type: 3}
   GettingHitSound: {fileID: 8300000, guid: d8142345588cb426da05ac0bab42e077, type: 3}
   DyingSound: {fileID: 8300000, guid: 289f157f792c98348b9b632eb4914ebe, type: 3}
   JumpingSound: {fileID: 8300000, guid: d8142345588cb426da05ac0bab42e077, type: 3}
@@ -3665,8 +3674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 2
-  armor: 2
+  damageMultiplier: 1.70000005
+  armor: 6
   BloodSpill: {fileID: 472852043}
   health: 0
 --- !u!114 &1201012293
@@ -3683,11 +3692,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1426643394}
   pickupDistance: 2
-  pickupVelocity: .00999999978
+  pickupVelocity: .200000003
   carriedBullet: {fileID: 766889722}
-  maxShootPower: 100
-  shootMultiplier: 50
+  maxShootPower: 15
+  shootMultiplier: 30
   playerID: 1
+  shootDown: 0
+  TimeUntilAutoPickup: 5
 --- !u!1001 &1202516237
 Prefab:
   m_ObjectHideFlags: 0

@@ -19,14 +19,14 @@ public class GameStateScript : MonoBehaviour {
 
 	public void Pause()
 	{
-		Debug.Log ("Pausing");
+		//Debug.Log ("Pausing");
 		Time.timeScale = 0;
 		gameState = GameState.GAMESTATE_PAUSED;
 	}
 
 	public void ContinuePlaying()
 	{
-		Debug.Log ("continuing playing");
+		//Debug.Log ("continuing playing");
 		Time.timeScale = 1;
 		gameState = GameState.GAMESTATE_PLAYING;
 	}
@@ -51,7 +51,7 @@ public class GameStateScript : MonoBehaviour {
 
 		if ( gameState == GameState.GAMESTATE_PAUSED ) 
 		{
-			Debug.Log ("paused drawing menus");
+			//Debug.Log ("paused drawing menus");
 			GUILayout.BeginArea(new Rect( Screen.width/2.0f - buttonWidth/2.0f, 
 			                             Screen.height/2.0f - 100.0f, 
 			                             buttonWidth, 
@@ -76,11 +76,11 @@ public class GameStateScript : MonoBehaviour {
 		{
 			if ( gameState == GameState.GAMESTATE_PAUSED)
 			{
-				Debug.Log("calling contplay");
+				//Debug.Log("calling contplay");
 				ContinuePlaying();
 			} else if ( gameState == GameState.GAMESTATE_PLAYING )
 			{
-				Debug.Log ("calling pause");
+				//Debug.Log ("calling pause");
 				Pause ();
 			}
 		}
@@ -88,6 +88,6 @@ public class GameStateScript : MonoBehaviour {
 	    {
 	        Application.LoadLevel("GravityDeathmatch");
 	    }
-		Debug.Log (gameState);
+		//Debug.Log (gameState);
 	}
 }

@@ -33,7 +33,7 @@ public class StarFieldScript : MonoBehaviour {
 	void jumpToRight()
 	{
 		//when the first BG on the list exit the barrier trigger, this snippet is called
-		Debug.Log ("hyppy");
+		//Debug.Log ("hyppy");
 		transform.Translate(
 			new Vector3(0 + transform.renderer.bounds.size.x * 2, 0, transform.position.z));
 
