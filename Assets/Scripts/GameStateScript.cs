@@ -69,7 +69,9 @@ public class GameStateScript : MonoBehaviour {
 			//GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 350, buttonWidth, 250));
 
 			if ( GUILayout.Button("Quit" , style ) ) {
-				Application.Quit();
+				ContinuePlaying();
+				Application.LoadLevel(0);
+				//Application.Quit();
 			}
 			
 			if ( GUILayout.Button("Continue" , style  ) ) {
