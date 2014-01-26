@@ -3,8 +3,12 @@ using System.Collections;
 
 public class GameStateScript : MonoBehaviour {
 
-	public enum GameState { GAMESTATE_PLAYING, GAMESTATE_PAUSED };
+	public enum GameState { GAMESTATE_PLAYING, GAMESTATE_PAUSED, GAMESTATE_ENDED };
 	public GameState gameState;
+
+    public SpriteRenderer EndGamePlayer1;
+    public SpriteRenderer EndGamePlayer2;
+    public MeshRenderer EndGameInstruction;
 
 	float buttonWidth = 250.0f;
 
@@ -26,6 +30,20 @@ public class GameStateScript : MonoBehaviour {
 		Time.timeScale = 1;
 		gameState = GameState.GAMESTATE_PLAYING;
 	}
+
+    public void EndGame(int winner)
+    {
+        gameState = GameState.GAMESTATE_ENDED;
+        if (winner == 1)
+        {
+            EndGamePlayer1.enabled = true;
+        }
+        else
+        {
+            EndGamePlayer2.enabled = true;
+        }
+        EndGameInstruction.enabled = true;
+    }
 
 	void OnGUI() {
 		GUIStyle style = new GUIStyle("button");
@@ -66,6 +84,10 @@ public class GameStateScript : MonoBehaviour {
 				Pause ();
 			}
 		}
+	    if (Input.GetKeyDown(KeyCode.Space) && gameState == GameState.GAMESTATE_ENDED)
+	    {
+	        Application.LoadLevel("GravityDeathmatch");
+	    }
 		Debug.Log (gameState);
 	}
 }

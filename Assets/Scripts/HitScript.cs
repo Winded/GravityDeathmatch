@@ -11,6 +11,9 @@ public class HitScript : MonoBehaviour {
 
 	public float health;
 
+    private bool _Blinking;
+    private float _BlinkStart;
+
 	// Use this for initialization
     private void Start()
     {
@@ -36,7 +39,6 @@ public class HitScript : MonoBehaviour {
 				if (health <= 0)
 				{	
 					transform.GetComponentInChildren<PlayerAnimatorControllerScript> ().Killed = true;
-
 				}
 				//Esko
 			    BloodSpill.transform.position = collision.contacts[0].point;
@@ -46,19 +48,46 @@ public class HitScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (health <= 0) {
-			
-			Debug.Log ("KILLED!!!!");
-			lives--;
-			health = fullHealth;
-			//transform.position = new Vector3 (0.0f, 0.0f, 0.0f);
-		}
-		
-		if (lives <= 0) {
-			Destroy (transform.gameObject);
-		}
-	}
-	
-	
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            Debug.Log("KILLED!!!!");
+            lives--;
+            health = fullHealth;
+            transform.position = Vector3.zero;
+            GetComponent<Controller2D>().MoveAngle = 0f;
+            _Blinking = true;
+            _BlinkStart = Time.time;
+        }
+
+        if (_Blinking && Time.time - _BlinkStart <= 2.5f)
+        {
+            if (Time.time%1 <= 0.5f)
+            {
+                print("BLINK ON");
+                GetComponent<Controller2D>().sprite.enabled = false;
+            }
+            else
+            {
+                print("BLINK OFF");
+                GetComponent<Controller2D>().sprite.enabled = true;
+            }
+        }
+        else if (_Blinking)
+        {
+            GetComponent<Controller2D>().sprite.enabled = true;
+            _Blinking = false;
+        }
+
+        if (lives <= 0)
+        {
+            GetComponent<Controller2D>().sprite.enabled = false;
+            GetComponent<PlayerScript>().bullet.GetComponent<SpriteRenderer>().enabled = false;
+            var gs = GameObject.FindGameObjectWithTag("GameState");
+            gs.GetComponent<GameStateScript>().EndGame(GetComponent<PlayerScript>().playerID);
+        }
+    }
+
+
 }
