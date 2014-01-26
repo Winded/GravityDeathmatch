@@ -26,8 +26,8 @@ public class HitScript : MonoBehaviour {
             && GetComponent<PlayerScript>().bullet != collision.collider.GetComponent<BulletScript>())
 		{
 			var mag = collision.relativeVelocity.magnitude;
-			Debug.Log ("collision: " + mag);
-			if ( mag > armor) 
+			//Debug.Log ("collision: " + mag);
+			if ( mag > armor && !_Blinking )
 			{
 				//Esko
 				GetComponent<PlayerSoundEffectsHelper>().MakeGettingHitSound();
@@ -35,7 +35,7 @@ public class HitScript : MonoBehaviour {
 				//Esko
 				
 				health -= (int)(damageMultiplier * (mag - armor));
-				Debug.Log ( "HEALTH:" + health );
+				//Debug.Log ( "HEALTH:" + health );
 				//Esko
 				if (health <= 0)
 				{	
@@ -57,18 +57,19 @@ public class HitScript : MonoBehaviour {
     {
         if (health <= 0)
         {
-            Debug.Log("KILLED!!!!");
+            //Debug.Log("KILLED!!!!");
             lives--;
             health = fullHealth;
             transform.position = Vector3.zero;
             GetComponent<Controller2D>().MoveAngle = 0f;
             _Blinking = true;
             _BlinkStart = Time.time;
+			transform.FindChild("CarriedBullet").GetComponent<SpriteRenderer>().enabled = false;
         }
 
         if (_Blinking && Time.time - _BlinkStart <= 2.5f)
         {
-            if (Time.time%1 <= 0.5f)
+            if (Time.time%0.4f <= 0.2f)
             {
                 print("BLINK ON");
                 GetComponent<Controller2D>().sprite.enabled = false;
@@ -82,15 +83,16 @@ public class HitScript : MonoBehaviour {
         else if (_Blinking)
         {
             GetComponent<Controller2D>().sprite.enabled = true;
-            _Blinking = false;
+			transform.FindChild("CarriedBullet").GetComponent<SpriteRenderer>().enabled = true;
+			_Blinking = false;
         }
 
-        if (lives <= 0)
+        var gs = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameStateScript>();
+        if (lives <= 0 && gs.gameState != GameStateScript.GameState.GAMESTATE_ENDED)
         {
             GetComponent<Controller2D>().sprite.enabled = false;
             GetComponent<PlayerScript>().bullet.GetComponent<SpriteRenderer>().enabled = false;
-            var gs = GameObject.FindGameObjectWithTag("GameState");
-            gs.GetComponent<GameStateScript>().EndGame(GetComponent<PlayerScript>().playerID);
+            gs.EndGame(GetComponent<PlayerScript>().playerID);
         }
     }
 

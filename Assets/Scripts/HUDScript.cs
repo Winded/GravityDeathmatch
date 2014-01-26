@@ -15,28 +15,26 @@ public class HUDScript : MonoBehaviour {
 	public enum sideEnum {LEFT, RIGHT};
 	public sideEnum side = sideEnum.LEFT;
 
-	int extraOffset = 0;	//moves life sprites to right if the bar is on right
+	int extraOffset = 4;	//moves life sprites to right if the bar is on right
 	// Use this for initialization
 	void Start () {
 		if (side == sideEnum.RIGHT) 
 		{
 			//put stuff to the right:
 			pos.x = Screen.width - 175;
-			extraOffset = 84;
+			extraOffset = 80;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		barDisplay = (player.GetComponent<HitScript> ().health / player.GetComponent<HitScript> ().fullHealth);
-		print (barDisplay);
-		print (player.GetComponent<HitScript> ().health / player.GetComponent<HitScript> ().fullHealth);
+		//print (barDisplay);
+		//print (player.GetComponent<HitScript> ().health / player.GetComponent<HitScript> ().fullHealth);
 	}
 
 	void OnGUI()
 	{
-		//GUI.Box(new Rect(10,10,100,25), "Loader Menu");
-
 
 		GUI.skin = mySkin;
 		int lives = (player.GetComponent<HitScript> ().lives);
@@ -46,14 +44,15 @@ public class HUDScript : MonoBehaviour {
 		{
 			for (int i = 0; i < lives; i++) 
 			{
-				GUI.Box(new Rect (pos.x + 22*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
+				GUI.Box(new Rect (pos.x + 32*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
 			}
 		}
 		else
 		{
+			//generate life images to the right edge of the screen
 			for (int i = 0; i < lives; i++) 
 			{
-				GUI.Box(new Rect (pos.x - 22*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
+				GUI.Box(new Rect (pos.x - 32*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
 			}
 		}
 
@@ -65,14 +64,10 @@ public class HUDScript : MonoBehaviour {
 		// draw the filled-in part:
 		GUI.BeginGroup (new Rect (0, 0, size.x * barDisplay, size.y));
 		GUI.Box (new Rect (0,0, size.x, size.y), progressBarFull);
-		GUI.EndGroup ();
-		
+		GUI.EndGroup ();	
 		GUI.EndGroup ();
 
-		/*if (GUI.Button (new Rect (10,10,150,100), "I am a button")) 
-		{
-			print ("You clicked the button!");
-		}*/
+	
 	}
 
 }

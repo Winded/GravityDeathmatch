@@ -9,6 +9,10 @@ public class GameStateScript : MonoBehaviour {
     public SpriteRenderer EndGamePlayer1;
     public SpriteRenderer EndGamePlayer2;
     public MeshRenderer EndGameInstruction;
+    public AudioSource MusicPlayer;
+    public AudioSource EndGameFunfar;
+    public AudioClip EndGamePlayerClip;
+    public AudioClip EndGameAlienClip;
 
 	float buttonWidth = 250.0f;
 
@@ -19,30 +23,36 @@ public class GameStateScript : MonoBehaviour {
 
 	public void Pause()
 	{
-		Debug.Log ("Pausing");
+		//Debug.Log ("Pausing");
 		Time.timeScale = 0;
 		gameState = GameState.GAMESTATE_PAUSED;
 	}
 
 	public void ContinuePlaying()
 	{
-		Debug.Log ("continuing playing");
+		//Debug.Log ("continuing playing");
 		Time.timeScale = 1;
 		gameState = GameState.GAMESTATE_PLAYING;
 	}
 
     public void EndGame(int winner)
     {
+        AudioClip clip;
         gameState = GameState.GAMESTATE_ENDED;
         if (winner == 1)
         {
             EndGamePlayer1.enabled = true;
+            clip = EndGamePlayerClip;
         }
         else
         {
             EndGamePlayer2.enabled = true;
+            clip = EndGameAlienClip;
         }
         EndGameInstruction.enabled = true;
+        EndGameFunfar.clip = clip;
+        EndGameFunfar.Play();
+        MusicPlayer.Stop();
     }
 
 	void OnGUI() {
@@ -51,7 +61,7 @@ public class GameStateScript : MonoBehaviour {
 
 		if ( gameState == GameState.GAMESTATE_PAUSED ) 
 		{
-			Debug.Log ("paused drawing menus");
+			//Debug.Log ("paused drawing menus");
 			GUILayout.BeginArea(new Rect( Screen.width/2.0f - buttonWidth/2.0f, 
 			                             Screen.height/2.0f - 100.0f, 
 			                             buttonWidth, 
@@ -76,11 +86,11 @@ public class GameStateScript : MonoBehaviour {
 		{
 			if ( gameState == GameState.GAMESTATE_PAUSED)
 			{
-				Debug.Log("calling contplay");
+				//Debug.Log("calling contplay");
 				ContinuePlaying();
 			} else if ( gameState == GameState.GAMESTATE_PLAYING )
 			{
-				Debug.Log ("calling pause");
+				//Debug.Log ("calling pause");
 				Pause ();
 			}
 		}
@@ -88,6 +98,6 @@ public class GameStateScript : MonoBehaviour {
 	    {
 	        Application.LoadLevel("GravityDeathmatch");
 	    }
-		Debug.Log (gameState);
+		//Debug.Log (gameState);
 	}
 }

@@ -22,7 +22,7 @@ public class ForbiddenZone : MonoBehaviour
         {
             var norm = col.contacts.First().normal;
             other.transform.position += (Vector3)norm*2;
-            print("YAY");
+            //print("YAY");
         }
     }
 
