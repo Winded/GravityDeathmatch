@@ -171,6 +171,91 @@ PolygonCollider2D:
     - - {x: -9.00286102, y: 3.69303417}
       - {x: -3.70432186, y: 8.99587917}
       - {x: -.00150207803, y: -.00293412432}
+--- !u!1 &99110642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 99110644}
+  - 82: {fileID: 99110643}
+  m_Layer: 0
+  m_Name: Funfar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &99110643
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 99110642}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 4522b31dc718a894e8173dfc94668442, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &99110644
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 99110642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0227245092, y: -.177650973, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 229668015}
 --- !u!1 &117811775
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +286,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Priority: 128
+  Priority: 65
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -473,6 +558,7 @@ Transform:
   m_LocalPosition: {x: -.700348139, y: -.0584249906, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 99110644}
   - {fileID: 288625104}
   - {fileID: 1552264043}
   - {fileID: 1699774399}
@@ -2431,6 +2517,7 @@ MonoBehaviour:
   shootMultiplier: 30
   playerID: 0
   shootDown: 0
+  TimeUntilAutoPickup: 5
 --- !u!61 &622635532
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3062,6 +3149,7 @@ MonoBehaviour:
   shootMultiplier: 30
   playerID: 0
   shootDown: 0
+  TimeUntilAutoPickup: 5
 --- !u!61 &950296627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3295,6 +3383,10 @@ MonoBehaviour:
   EndGamePlayer1: {fileID: 1552264042}
   EndGamePlayer2: {fileID: 1699774400}
   EndGameInstruction: {fileID: 288625106}
+  MusicPlayer: {fileID: 117811776}
+  EndGameFunfar: {fileID: 99110643}
+  EndGamePlayerClip: {fileID: 8300000, guid: 4522b31dc718a894e8173dfc94668442, type: 3}
+  EndGameAlienClip: {fileID: 8300000, guid: d77b24eeb246c3f4d87e6f3f035c5f8b, type: 3}
 --- !u!4 &1029437636
 Transform:
   m_ObjectHideFlags: 0
@@ -3737,6 +3829,7 @@ MonoBehaviour:
   shootMultiplier: 30
   playerID: 1
   shootDown: 0
+  TimeUntilAutoPickup: 5
 --- !u!1001 &1202516237
 Prefab:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class StarFieldScript : MonoBehaviour {
 	{
 		transform.Translate(new Vector3(speed * horizontalDirection * Time.deltaTime, 0, 0));
 
-		if (transform.position.x < -transform.renderer.bounds.size.x)
+		if (transform.position.x < (Camera.main.transform.position.x  - transform.renderer.bounds.size.x))
 		{
 			jumpToRight();
 		}
@@ -26,7 +26,7 @@ public class StarFieldScript : MonoBehaviour {
 	void Awake()
 	{
 		transform.Translate(
-			new Vector3(0 + transform.renderer.bounds.size.x * id, 0, transform.position.z));
+			new Vector3(Camera.main.transform.position.x + (transform.renderer.bounds.size.x * id), 0, transform.position.z));
 
 	}
 
@@ -35,7 +35,7 @@ public class StarFieldScript : MonoBehaviour {
 		//when the first BG on the list exit the barrier trigger, this snippet is called
 		//Debug.Log ("hyppy");
 		transform.Translate(
-			new Vector3(0 + transform.renderer.bounds.size.x * 2, 0, transform.position.z));
+			new Vector3(Camera.main.transform.position.x + transform.renderer.bounds.size.x * 2, 0, transform.position.z));
 
 
 	}
