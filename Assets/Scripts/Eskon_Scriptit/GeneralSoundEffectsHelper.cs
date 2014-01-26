@@ -20,7 +20,7 @@ public class GeneralSoundEffectsHelper : MonoBehaviour
 		// Register the singleton
 				if (Instance != null)
 				{
-					Debug.LogError("Multiple instances of PlayerSoundEffectsHelper!");
+
 				}
 				Instance = this;
 	}

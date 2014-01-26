@@ -70,7 +70,6 @@ public class Controller2D : MonoBehaviour
 
     void FixedUpdate()
     {
-		//Debug.Log (Time.fixedDeltaTime);
 		if ( gameStateManager.GetComponent<GameStateScript>().gameState != GameStateScript.GameState.GAMESTATE_PAUSED )
 		{
 

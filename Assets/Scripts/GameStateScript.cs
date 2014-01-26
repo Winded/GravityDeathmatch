@@ -23,7 +23,6 @@ public class GameStateScript : MonoBehaviour {
 
 	public void Pause()
 	{
-		//Debug.Log ("Pausing");
 		Time.timeScale = 0;
 		gameState = GameState.GAMESTATE_PAUSED;
 	}

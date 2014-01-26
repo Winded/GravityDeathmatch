@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public void PutBulletOverhead()
 	{
-		Debug.Log ("Putting bullet overhead");
+		//Debug.Log ("Putting bullet overhead");
 		bullet.gameObject.SetActive (false);
 		bullet.IsAttached = true;
 
@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour {
 			bullet.rigidbody2D.AddForce ( new Vector2(100.0f * delta.x, 100.0f * delta.y) );
 		    _AutoPickupTime = Time.time + TimeUntilAutoPickup;
 			_ShootPickupTime = Time.time + TimeUntilShootPickup;
-			Debug.Log("Shot with " + delta);
+			//Debug.Log("Shot with " + delta);
 		}
 	}
 

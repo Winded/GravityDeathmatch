@@ -71,12 +71,12 @@ public class HitScript : MonoBehaviour {
         {
             if (Time.time%0.4f <= 0.2f)
             {
-                print("BLINK ON");
+                //print("BLINK ON");
                 GetComponent<Controller2D>().sprite.enabled = false;
             }
             else
             {
-                print("BLINK OFF");
+                //print("BLINK OFF");
                 GetComponent<Controller2D>().sprite.enabled = true;
             }
         }

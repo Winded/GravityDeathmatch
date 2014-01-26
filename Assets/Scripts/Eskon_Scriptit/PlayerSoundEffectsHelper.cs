@@ -21,12 +21,7 @@ public class PlayerSoundEffectsHelper : MonoBehaviour
 	
 	void Awake()
 	{
-		// Register the singleton
-//		if (Instance != null)
-//		{
-//			Debug.LogError("Multiple instances of PlayerSoundEffectsHelper!");
-//		}
-//		Instance = this;
+
 	}
 	
 	public void MakeShootingSound()
