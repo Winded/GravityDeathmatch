@@ -16,12 +16,12 @@ public class GravityControllerScript : MonoBehaviour {
 		bullets [0].GetComponent<GravityScript> ().gravityAngle = p0startAngle;
 		players [0].GetComponent<GravityScript> ().gravityAngle = p0startAngle;
 		players[0].GetComponent<Controller2D>().MoveAngle = (p0startAngle + 90) % 360;
-		players[1].transform.rotation = Quaternion.Euler (new Vector3(0.0f, 0.0f, (p0startAngle - 90.0f) % 360.0f));
+		players[1].transform.rotation = Quaternion.Euler (new Vector3(0.0f, 0.0f, (p0startAngle + 90.0f) % 360.0f));
 
 		bullets [1].GetComponent<GravityScript> ().gravityAngle = p1startAngle;
 		players [1].GetComponent<GravityScript> ().gravityAngle = p1startAngle;
 		players[1].GetComponent<Controller2D>().MoveAngle = (p1startAngle + 90) % 360;
-		players[1].transform.rotation = Quaternion.Euler (new Vector3(0.0f, 0.0f, (p1startAngle - 90.0f) % 360.0f));
+		players[1].transform.rotation = Quaternion.Euler (new Vector3(0.0f, 0.0f, (p1startAngle + 90.0f) % 360.0f));
 	}
 
 	public void SetGravity(int player) {
