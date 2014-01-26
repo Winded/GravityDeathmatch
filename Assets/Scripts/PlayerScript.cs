@@ -59,6 +59,10 @@ public class PlayerScript : MonoBehaviour {
 	{
 		if (bullet.GetComponent<BulletScript> ().IsAttached) 
 		{
+			// Esko
+			transform.GetComponent<PlayerSoundEffectsHelper>().MakeShootingSound();
+			//Esko
+
 			float angle = transform.GetComponent<Controller2D>().MoveAngle;
 
 			input.y += 1.0f;
