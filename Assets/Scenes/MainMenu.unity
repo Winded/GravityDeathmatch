@@ -101,9 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f588ac56cfffa4bad6edb27fb77cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonWidth: 200
+  buttonWidth: 150
   creditsWidth: 900
-  thefont: {fileID: 12800000, guid: 7dd4c7092be242b4a9439ed641f44a3f, type: 3}
+  thefont: {fileID: 12800000, guid: 5c2415dc78d95984a8e5df7844d50348, type: 3}
+  creditsSkin: {fileID: 11400000, guid: bf3dc3e9ce42e4e78bfd59ef24900370, type: 2}
+  mainMenuSkin: {fileID: 11400000, guid: 4ec62981a78734daeaf70d0550ff4bb6, type: 2}
 --- !u!4 &474911579
 Transform:
   m_ObjectHideFlags: 0

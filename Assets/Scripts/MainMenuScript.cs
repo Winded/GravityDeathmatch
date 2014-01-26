@@ -7,7 +7,8 @@ public class MainMenuScript : MonoBehaviour {
 	public float buttonWidth;
 	public float creditsWidth;
 	public Font thefont;
-
+	public GUISkin creditsSkin;
+	public GUISkin mainMenuSkin;
 	//public GUIStyle style;
 
 	MenuState menuState;
@@ -21,35 +22,45 @@ public class MainMenuScript : MonoBehaviour {
 
 		//GUILayoutOption[] style = new GUILayoutOption[] { GUILayout.Width(buttonWidth), GUILayout.Height(50.0f) };
 
-		GUIStyle style = new GUIStyle("button");
-		style.font = thefont;
-		style.fontSize = 40;
 
 		if ( menuState == MenuState.MENU_MAIN) 
 		{
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 250, buttonWidth, 250));
-			if ( GUILayout.Button("Play", style) ) {
+			GUI.skin = mainMenuSkin;
+
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - 750/2.0f, Screen.height - 350, 750, 750));
+			GUILayout.BeginHorizontal();
+
+			//GUI.BeginGroup(new Rect(0, 0, 250, 250));
+			if ( GUILayout.Button("PLAY", GUILayout.Width(250)) ) {
 				Application.LoadLevel("GravityDeathmatch");
 			}
+			//GUI.EndGroup();
 
-			if ( GUILayout.Button("Credits", style ) ) {
+			//GUI.BeginGroup(new Rect(0, 0, 250, 250));
+			//GUI.Button (new Rect (25,25,100,30), "I am a Fixed Layout Button");
+			if ( GUILayout.Button("CREDITS", GUILayout.Width(250)) ) {
 				menuState = MenuState.MENU_CREDITS;
 			}
+			//GUI.EndGroup();
 
-			if ( GUILayout.Button("Exit", style ) ) {
+			//GUI.BeginGroup(new Rect(0, 0, 250, 250));
+			if ( GUILayout.Button( "EXIT", GUILayout.Width(250) ) ) {
 				Application.Quit();
 			}
+			//GUI.EndGroup();
 			GUILayout.EndArea ();
+			GUILayout.EndHorizontal();
 		} else if ( menuState == MenuState.MENU_CREDITS ) 
 		{
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - 350, creditsWidth, 250));
-			GUIStyle style2 = new GUIStyle("TextArea");
-			style2.fontSize = 25;
-			GUILayout.TextArea("Gravity Deathmatch was made at Global/Finnish Game Jam 2014 by:\nProgramming: Timo Kellomäki, Antton Hytönen, Esko Vankka & Tuomas Salmi\nGraphics: Sertuzzi & Tuomas Salmi\nMusic: Asko Pennanen\nSound effects: Jonne Kokkonen & Konstamikko Korhonen", style2);
+			GUI.skin = creditsSkin;
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - 380, creditsWidth, 250));
+			//GUIStyle style2 = new GUIStyle("TextArea");
+			//style2.fontSize = 25;
+			GUILayout.Label("Gravity Deathmatch was made at Global/Finnish Game Jam 2014 by:\n\nProgramming\nTimo Kellomäki, Antton Hytönen, Esko Vankka & Tuomas Salmi\n\nGraphics\nIlkka Tauriainen & Tuomas Salmi\n\nMusic\nAsko Pennanen\n\nSound effects\nJonne Kokkonen & Konstamikko Korhonen");
 			GUILayout.EndArea ();
 
 			GUILayout.BeginArea(new Rect(Screen.width/2.0f - buttonWidth/2.0f, Screen.height - 100, buttonWidth, 100));
-			if ( GUILayout.Button("Back", style ) ) {
+			if ( GUILayout.Button("BACK") ) {
 				menuState = MenuState.MENU_MAIN;
 			}
 			GUILayout.EndArea ();
