@@ -6,6 +6,7 @@ public class MainMenuScript : MonoBehaviour {
 	public enum MenuState { MENU_MAIN, MENU_CREDITS };
 	public float buttonWidth;
 	public float creditsWidth;
+	public Font thefont;
 
 	//public GUIStyle style;
 
@@ -21,6 +22,7 @@ public class MainMenuScript : MonoBehaviour {
 		//GUILayoutOption[] style = new GUILayoutOption[] { GUILayout.Width(buttonWidth), GUILayout.Height(50.0f) };
 
 		GUIStyle style = new GUIStyle("button");
+		style.font = thefont;
 		style.fontSize = 40;
 
 		if ( menuState == MenuState.MENU_MAIN) 

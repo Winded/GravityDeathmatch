@@ -14,6 +14,9 @@ public class PlayerScript : MonoBehaviour {
 
 	public float shootDown;
 
+    public float TimeUntilAutoPickup = 5f;
+    private float _AutoPickupTime;
+
 	// Use this for initialization
 	void Start () {
 		PutBulletOverhead ();
@@ -49,7 +52,6 @@ public class PlayerScript : MonoBehaviour {
 		if (bullet.GetComponent<BulletScript> ().IsAttached) 
 		{
 			shootDown += Time.deltaTime;
-			//Debug.Log ("Powering up by " + Time.deltaTime + ", now " + shootDown);
 		} 
 	}
 
@@ -60,11 +62,9 @@ public class PlayerScript : MonoBehaviour {
 			float angle = transform.GetComponent<Controller2D>().MoveAngle;
 
 			input.y += 1.0f;
-			//Vector2 shootDir = Vectors.RotateVector2(new Vector3( 0.0f, 10.0f), angle);
 			Vector2 shootDir = Vectors.RotateVector2(input, angle);
 
 			float shootPower = Mathf.Min( shootMultiplier * shootDown, maxShootPower );
-			//Debug.Log ( "Shoot with power " + shootMultiplier * shootDown );
 			Shoot ( rigidbody2D.velocity + shootPower * shootDir );
 			shootDown = 0.0f;
 		}
@@ -81,19 +81,37 @@ public class PlayerScript : MonoBehaviour {
 			float angle = transform.GetComponent<Controller2D>().MoveAngle;
 			Vector2 offset = Vectors.RotateVector2(new Vector3( 0.0f, 2.0f), angle);
 			bullet.transform.position = transform.position + new Vector3( offset.x, offset.y, 0.0f );
-			bullet.rigidbody2D.velocity = new Vector3 (0.0f, 0.0f, 0.0f);
+		    bullet.rigidbody2D.velocity = Vector3.zero;
 			bullet.rigidbody2D.AddForce ( new Vector2(100.0f * delta.x, 100.0f * delta.y) );
+		    _AutoPickupTime = Time.time + TimeUntilAutoPickup;
 		}
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if ( !bullet.GetComponent<BulletScript>().IsAttached &&
-			Vector3.Distance ( bullet.transform.position, transform.position) < pickupDistance &&
-			Vector3.Magnitude( bullet.rigidbody2D.velocity - rigidbody2D.velocity) < pickupVelocity)
+		if (IsBulletPickable() ||
+            IsAutoPickupTime())
+		{
+			PutBulletOverhead();
+		}
+
+		if (Vector3.Distance (bullet.transform.position, transform.position) >= 40.0f)
 		{
 			PutBulletOverhead();
 		}
 	}
+
+    public bool IsBulletPickable()
+    {
+        return !bullet.GetComponent<BulletScript>().IsAttached &&
+               Vector3.Distance(bullet.transform.position, transform.position) < pickupDistance &&
+               Vector3.Magnitude(bullet.rigidbody2D.velocity - rigidbody2D.velocity) < pickupVelocity;
+    }
+
+    public bool IsAutoPickupTime()
+    {
+        return !bullet.GetComponent<BulletScript>().IsAttached &&
+               Time.time >= _AutoPickupTime;
+    }
 }

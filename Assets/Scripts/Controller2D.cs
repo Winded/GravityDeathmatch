@@ -52,8 +52,15 @@ public class Controller2D : MonoBehaviour
 
 			if (Input.GetButtonUp ("Fire" + _PlayerID))
 			{
+				// Esko
+				//GetComponent<PlayerSoundEffectsHelper>().MakeShootingSound();
+				//Esko
+
 				Vector2 input = new Vector2( Input.GetAxis("Horizontal" + _PlayerID), Input.GetAxis ("Vertical" + _PlayerID) );
 				_Player.ActionUp(input);
+
+
+
 			}
 
 			if (Input.GetButton( "Fire" + _PlayerID))
@@ -84,7 +91,7 @@ public class Controller2D : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal" + _PlayerID );
 
 		//Esko
-		transform.GetComponentInChildren<PlayerAnimatorControllerScript>().move = horizontalInput;
+		//transform.GetComponentInChildren<PlayerAnimatorControllerScript>().move = horizontalInput;
 		//Esko
 
         var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*horizontalInput*MoveSpeed*Time.fixedDeltaTime;
@@ -103,6 +110,7 @@ public class Controller2D : MonoBehaviour
             rigidbody2D.AddForce(vdir*JumpForce*Time.deltaTime);
 
 			//Esko
+			GetComponent<PlayerSoundEffectsHelper>().MakeJumpingSound();
 			transform.GetComponentInChildren<PlayerAnimatorControllerScript>().jumping = true;
 			//Esko
         }
