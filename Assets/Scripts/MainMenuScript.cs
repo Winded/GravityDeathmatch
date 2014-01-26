@@ -59,7 +59,7 @@ public class MainMenuScript : MonoBehaviour {
 		} else if ( menuState == MenuState.MENU_CREDITS ) 
 		{
 			GUI.skin = creditsSkin;
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - 380, creditsWidth, 250));
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - Screen.height/2.1f, creditsWidth, 250));
 			//GUIStyle style2 = new GUIStyle("TextArea");
 			//style2.fontSize = 25;
 			GUILayout.Label("Gravity Deathmatch was made at Global/Finnish Game Jam 2014 by:\n\nProgramming\nTimo Kellomäki, Antton Hytönen, Esko Vankka & Tuomas Salmi\n\nGraphics\nIlkka Tauriainen & Tuomas Salmi\n\nMusic\nAsko Pennanen\n\nSound effects\nJonne Kokkonen & Konstamikko Korhonen");
@@ -74,7 +74,7 @@ public class MainMenuScript : MonoBehaviour {
 		else if ( menuState == MenuState.MENU_INSTRUCTIONS ) 
 		{
 			GUI.skin = creditsSkin;
-			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - 380, creditsWidth, 270));
+			GUILayout.BeginArea(new Rect(Screen.width/2.0f - creditsWidth/2.0f, Screen.height - Screen.height/2.1f, creditsWidth, 270));
 			//GUIStyle style2 = new GUIStyle("TextArea");
 			//style2.fontSize = 25;
 			GUILayout.Label("--Astronaut controls--\n\nMove: WASD\nShoot/change gravity: TAB\n\n--Alien controls--\n\nMove: ARROWS\nShoot/change gravity: SPACE\n\n--Goal--\n\nFire your projectile to hit the enemy or press fire again to\nchange your personal gravity.");
