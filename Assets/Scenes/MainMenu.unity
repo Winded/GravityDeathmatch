@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonWidth: 200
   creditsWidth: 900
+  thefont: {fileID: 12800000, guid: 7dd4c7092be242b4a9439ed641f44a3f, type: 3}
 --- !u!4 &474911579
 Transform:
   m_ObjectHideFlags: 0
