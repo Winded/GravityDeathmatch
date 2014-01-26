@@ -45,6 +45,7 @@ public class HitScript : MonoBehaviour {
 
 				}
 				//Esko
+
 			    BloodSpill.transform.position = collision.contacts[0].point;
 			    BloodSpill.Play();
 			}

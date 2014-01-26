@@ -16,6 +16,8 @@ public class PlayerSoundEffectsHelper : MonoBehaviour
 	public AudioClip GettingHitSound;
 	public AudioClip DyingSound;
 	public AudioClip JumpingSound;
+	public AudioClip ChangeGravitySound;
+	public AudioClip MissedShotSound;
 	
 	void Awake()
 	{
@@ -47,7 +49,15 @@ public class PlayerSoundEffectsHelper : MonoBehaviour
 		MakeSound(JumpingSound);
 	}
 
+	public void MakeChangeGravitySound()
+	{
+		MakeSound(ChangeGravitySound);
+	}
 
+	public void MakeMissedShotSound()
+	{
+		MakeSound(MissedShotSound);
+	}
 	
 	/// <summary>
 	/// Play a given sound

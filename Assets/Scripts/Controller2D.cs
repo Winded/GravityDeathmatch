@@ -52,9 +52,7 @@ public class Controller2D : MonoBehaviour
 
 			if (Input.GetButtonUp ("Fire" + _PlayerID))
 			{
-				// Esko
-				//GetComponent<PlayerSoundEffectsHelper>().MakeShootingSound();
-				//Esko
+
 
 				Vector2 input = new Vector2( Input.GetAxis("Horizontal" + _PlayerID), Input.GetAxis ("Vertical" + _PlayerID) );
 				_Player.ActionUp(input);
