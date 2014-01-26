@@ -15,7 +15,9 @@ public class PlayerScript : MonoBehaviour {
 	public float shootDown;
 
     public float TimeUntilAutoPickup = 5f;
+	public float TimeUntilShootPickup = 0.12f;
     private float _AutoPickupTime;
+	private float _ShootPickupTime;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +26,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public void PutBulletOverhead()
 	{
+		Debug.Log ("Putting bullet overhead");
 		bullet.gameObject.SetActive (false);
 		bullet.IsAttached = true;
 
@@ -71,6 +74,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	public void Shoot(Vector2 delta) {
+
 		if ( bullet.GetComponent<BulletScript> ().IsAttached )
 		{
 			carriedBullet.gameObject.SetActive(false);
@@ -84,12 +88,13 @@ public class PlayerScript : MonoBehaviour {
 		    bullet.rigidbody2D.velocity = Vector3.zero;
 			bullet.rigidbody2D.AddForce ( new Vector2(100.0f * delta.x, 100.0f * delta.y) );
 		    _AutoPickupTime = Time.time + TimeUntilAutoPickup;
+			_ShootPickupTime = Time.time + TimeUntilShootPickup;
+			Debug.Log("Shot with " + delta);
 		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-
 		if (IsBulletPickable() ||
             IsAutoPickupTime())
 		{
@@ -98,19 +103,23 @@ public class PlayerScript : MonoBehaviour {
 
 		if (Vector3.Distance (bullet.transform.position, transform.position) >= 40.0f)
 		{
+			Debug.Log ("Bullet out of field, fixing");
 			PutBulletOverhead();
 		}
 	}
 
     public bool IsBulletPickable()
     {
-        return !bullet.GetComponent<BulletScript>().IsAttached &&
+			return !bullet.GetComponent<BulletScript>().IsAttached &&
+				Time.time >= _ShootPickupTime &&
                Vector3.Distance(bullet.transform.position, transform.position) < pickupDistance &&
                Vector3.Magnitude(bullet.rigidbody2D.velocity - rigidbody2D.velocity) < pickupVelocity;
     }
 
     public bool IsAutoPickupTime()
     {
+		//if ( playerID == 1 ) Debug.Log (_AutoPickupTime + " " + Time.time);
+
         return !bullet.GetComponent<BulletScript>().IsAttached &&
                Time.time >= _AutoPickupTime;
     }

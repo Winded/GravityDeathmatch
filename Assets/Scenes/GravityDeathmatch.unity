@@ -146,7 +146,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 28684352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba4d99e23e7c4fb4fbe453cd5ec3b8fc, type: 3}
   m_Name: 
@@ -2977,7 +2977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 1.70000005
+  damageMultiplier: 1.39999998
   armor: 6
   BloodSpill: {fileID: 1884592422}
   health: 0
@@ -2995,13 +2995,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
   pickupDistance: 3
-  pickupVelocity: .400000006
+  pickupVelocity: .300000012
   carriedBullet: {fileID: 313158922}
   maxShootPower: 15
-  shootMultiplier: 30
+  shootMultiplier: 40
   playerID: 0
   shootDown: 0
   TimeUntilAutoPickup: 5
+  TimeUntilShootPickup: .119999997
 --- !u!61 &950296627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3637,7 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 1.70000005
+  damageMultiplier: 1.39999998
   armor: 6
   BloodSpill: {fileID: 472852043}
   health: 0
@@ -3655,13 +3656,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1426643394}
   pickupDistance: 3
-  pickupVelocity: .400000006
+  pickupVelocity: .300000012
   carriedBullet: {fileID: 766889722}
   maxShootPower: 15
-  shootMultiplier: 30
+  shootMultiplier: 40
   playerID: 1
   shootDown: 0
   TimeUntilAutoPickup: 5
+  TimeUntilShootPickup: .119999997
 --- !u!1 &1310484515
 GameObject:
   m_ObjectHideFlags: 0
