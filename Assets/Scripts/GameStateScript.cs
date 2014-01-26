@@ -9,6 +9,10 @@ public class GameStateScript : MonoBehaviour {
     public SpriteRenderer EndGamePlayer1;
     public SpriteRenderer EndGamePlayer2;
     public MeshRenderer EndGameInstruction;
+    public AudioSource MusicPlayer;
+    public AudioSource EndGameFunfar;
+    public AudioClip EndGamePlayerClip;
+    public AudioClip EndGameAlienClip;
 
 	float buttonWidth = 250.0f;
 
@@ -33,16 +37,22 @@ public class GameStateScript : MonoBehaviour {
 
     public void EndGame(int winner)
     {
+        AudioClip clip;
         gameState = GameState.GAMESTATE_ENDED;
         if (winner == 1)
         {
             EndGamePlayer1.enabled = true;
+            clip = EndGamePlayerClip;
         }
         else
         {
             EndGamePlayer2.enabled = true;
+            clip = EndGameAlienClip;
         }
         EndGameInstruction.enabled = true;
+        EndGameFunfar.clip = clip;
+        EndGameFunfar.Play();
+        MusicPlayer.Stop();
     }
 
 	void OnGUI() {

@@ -80,12 +80,12 @@ public class HitScript : MonoBehaviour {
             _Blinking = false;
         }
 
-        if (lives <= 0)
+        var gs = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameStateScript>();
+        if (lives <= 0 && gs.gameState != GameStateScript.GameState.GAMESTATE_ENDED)
         {
             GetComponent<Controller2D>().sprite.enabled = false;
             GetComponent<PlayerScript>().bullet.GetComponent<SpriteRenderer>().enabled = false;
-            var gs = GameObject.FindGameObjectWithTag("GameState");
-            gs.GetComponent<GameStateScript>().EndGame(GetComponent<PlayerScript>().playerID);
+            gs.EndGame(GetComponent<PlayerScript>().playerID);
         }
     }
 
