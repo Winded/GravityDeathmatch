@@ -12,7 +12,7 @@ public class GeneralSoundEffectsHelper : MonoBehaviour
 	/// </summary>
 	public static GeneralSoundEffectsHelper Instance;
 	
-	public AudioClip NameOfSound;
+	public AudioClip MissedShotSound;
 
 	
 	void Awake()
@@ -25,9 +25,9 @@ public class GeneralSoundEffectsHelper : MonoBehaviour
 				Instance = this;
 	}
 	
-	public void MakeNameOfSound()
+	public void MakeMissedShotSound()
 	{
-		MakeSound(NameOfSound);
+		MakeSound(MissedShotSound);
 	}
 	
 		

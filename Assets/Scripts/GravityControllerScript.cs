@@ -20,6 +20,9 @@ public class GravityControllerScript : MonoBehaviour {
 	}
 
 	public void SetGravity(int player) {
+		//Esko
+		players[player].GetComponent<PlayerSoundEffectsHelper>().MakeChangeGravitySound();
+		//Esko
 		Vector2 pos = bullets [player].transform.position;
 		Collider2D collider = Physics2D.OverlapPoint (pos, 1 << LayerMask.NameToLayer("Octagonsector"));
 		//if (Physics.Raycast (pos, new Vector3(0.0f, 0.0f, -1.0f), out hit) ) {
