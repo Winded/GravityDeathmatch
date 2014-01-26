@@ -15,14 +15,14 @@ public class HUDScript : MonoBehaviour {
 	public enum sideEnum {LEFT, RIGHT};
 	public sideEnum side = sideEnum.LEFT;
 
-	int extraOffset = 0;	//moves life sprites to right if the bar is on right
+	int extraOffset = 4;	//moves life sprites to right if the bar is on right
 	// Use this for initialization
 	void Start () {
 		if (side == sideEnum.RIGHT) 
 		{
 			//put stuff to the right:
 			pos.x = Screen.width - 175;
-			extraOffset = 84;
+			extraOffset = 80;
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class HUDScript : MonoBehaviour {
 		{
 			for (int i = 0; i < lives; i++) 
 			{
-				GUI.Box(new Rect (pos.x + 22*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
+				GUI.Box(new Rect (pos.x + 32*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
 			}
 		}
 		else
@@ -52,7 +52,7 @@ public class HUDScript : MonoBehaviour {
 			//generate life images to the right edge of the screen
 			for (int i = 0; i < lives; i++) 
 			{
-				GUI.Box(new Rect (pos.x - 22*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
+				GUI.Box(new Rect (pos.x - 32*i + extraOffset, pos.y+32, 100, 100), playerIcon);	//face
 			}
 		}
 
