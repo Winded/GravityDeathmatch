@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 1.39999998
+  damageMultiplier: 1.25
   armor: 6
   BloodSpill: {fileID: 0}
   health: 0
