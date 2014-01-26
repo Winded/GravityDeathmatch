@@ -26,6 +26,7 @@ public class HitScript : MonoBehaviour {
 			if ( mag > armor) 
 			{
 				//Esko
+				GetComponent<PlayerSoundEffectsHelper>().MakeGettingHitSound();
 				transform.GetComponentInChildren<PlayerAnimatorControllerScript>().gotHit = true;
 				//Esko
 				
@@ -34,11 +35,10 @@ public class HitScript : MonoBehaviour {
 				//Esko
 				if (health <= 0)
 				{	
+
+					GetComponent<PlayerSoundEffectsHelper>().MakeDyingSound();
 					transform.GetComponentInChildren<PlayerAnimatorControllerScript> ().Killed = true;
-					while(transform.GetComponentInChildren<Animator>().animation.IsPlaying("death"))
-					{
-						;
-					}
+
 					
 				}
 				//Esko
