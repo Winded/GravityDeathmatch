@@ -72,7 +72,7 @@ public class Controller2D : MonoBehaviour
 
     void FixedUpdate()
     {
-		Debug.Log (Time.fixedDeltaTime);
+		//Debug.Log (Time.fixedDeltaTime);
 		if ( gameStateManager.GetComponent<GameStateScript>().gameState != GameStateScript.GameState.GAMESTATE_PAUSED )
 		{
 
@@ -91,7 +91,7 @@ public class Controller2D : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal" + _PlayerID );
 
 		//Esko
-		//transform.GetComponentInChildren<PlayerAnimatorControllerScript>().move = horizontalInput;
+		transform.GetComponentInChildren<PlayerAnimatorControllerScript>().move = horizontalInput;
 		//Esko
 
         var mdir = Vectors.RotateVector2(Vector2.right, MoveAngle)*horizontalInput*MoveSpeed*Time.fixedDeltaTime;

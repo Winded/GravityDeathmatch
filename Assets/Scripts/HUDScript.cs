@@ -29,8 +29,8 @@ public class HUDScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		barDisplay = (player.GetComponent<HitScript> ().health / player.GetComponent<HitScript> ().fullHealth);
-		print (barDisplay);
-		print (player.GetComponent<HitScript> ().health / player.GetComponent<HitScript> ().fullHealth);
+		//print (barDisplay);
+		//print (player.GetComponent<HitScript> ().health / player.GetComponent<HitScript> ().fullHealth);
 	}
 
 	void OnGUI()

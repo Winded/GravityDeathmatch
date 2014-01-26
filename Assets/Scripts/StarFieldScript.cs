@@ -40,7 +40,8 @@ public class StarFieldScript : MonoBehaviour {
 
 	void jumpToRight()
 	{
-		Debug.Log ("hyppy");
+
+	
 		transform.Translate(
 			new Vector3((Camera.main.transform.position.x - camWidth/2) + (transform.renderer.bounds.size.x * 3), 0, transform.position.z));
 
