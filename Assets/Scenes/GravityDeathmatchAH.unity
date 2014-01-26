@@ -1013,6 +1013,7 @@ GameObject:
   - 212: {fileID: 356281742}
   - 58: {fileID: 356281741}
   - 50: {fileID: 356281743}
+  - 114: {fileID: 356281744}
   m_Layer: 0
   m_Name: Rock1
   m_TagString: Untagged
@@ -1039,7 +1040,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 1043517137}
   m_GameObject: {fileID: 356281739}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 963fd817242817a4d9f2db273d9aba9e, type: 2}
   m_IsTrigger: 0
   m_Radius: .819999993
   m_Center: {x: 0, y: 0}
@@ -1083,6 +1084,19 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!114 &356281744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: e785ab7b7cc36f14eaf64e1a64d1b4a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1043517137}
+  m_GameObject: {fileID: 356281739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e66a750d8bbaa47a7a302400b923d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VelocityMagnitude: 2.5
 --- !u!1 &390430090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2569,7 @@ GameObject:
   - 212: {fileID: 523196272}
   - 58: {fileID: 523196271}
   - 50: {fileID: 523196270}
+  - 114: {fileID: 523196274}
   m_Layer: 0
   m_Name: Rock2
   m_TagString: Untagged
@@ -2586,7 +2601,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 1847767933}
   m_GameObject: {fileID: 523196269}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 963fd817242817a4d9f2db273d9aba9e, type: 2}
   m_IsTrigger: 0
   m_Radius: .819999993
   m_Center: {x: 0, y: 0}
@@ -2625,6 +2640,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 308560356}
+--- !u!114 &523196274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: e785ab7b7cc36f14eaf64e1a64d1b4a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1847767933}
+  m_GameObject: {fileID: 523196269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e66a750d8bbaa47a7a302400b923d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VelocityMagnitude: 1
 --- !u!1001 &538181349
 Prefab:
   m_ObjectHideFlags: 0
@@ -3216,7 +3244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 1.70000005
+  damageMultiplier: 1.39999998
   armor: 6
   BloodSpill: {fileID: 1884592422}
   health: 0
@@ -3234,13 +3262,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 265183108}
   pickupDistance: 3
-  pickupVelocity: .400000006
+  pickupVelocity: .300000012
   carriedBullet: {fileID: 313158922}
   maxShootPower: 15
-  shootMultiplier: 30
+  shootMultiplier: 40
   playerID: 0
   shootDown: 0
   TimeUntilAutoPickup: 5
+  TimeUntilShootPickup: .119999997
 --- !u!61 &950296627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3329,6 +3358,8 @@ MonoBehaviour:
   GettingHitSound: {fileID: 8300000, guid: 7e3a828900f25ed448007f17d04b1b90, type: 3}
   DyingSound: {fileID: 8300000, guid: aa42eb564addc4d4d8a214ddd67e6cea, type: 3}
   JumpingSound: {fileID: 8300000, guid: 8afecba4c38190540a495860039d2907, type: 3}
+  ChangeGravitySound: {fileID: 0}
+  MissedShotSound: {fileID: 0}
 --- !u!1001 &956486832
 Prefab:
   m_ObjectHideFlags: 0
@@ -3503,6 +3534,10 @@ Prefab:
     - target: {fileID: 5000000, guid: e785ab7b7cc36f14eaf64e1a64d1b4a9, type: 2}
       propertyPath: m_Mass
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e785ab7b7cc36f14eaf64e1a64d1b4a9, type: 2}
+      propertyPath: VelocityMagnitude
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e785ab7b7cc36f14eaf64e1a64d1b4a9, type: 2}
@@ -3846,6 +3881,8 @@ MonoBehaviour:
   GettingHitSound: {fileID: 8300000, guid: 58c1a983254b771419034ad0df647f02, type: 3}
   DyingSound: {fileID: 8300000, guid: 289f157f792c98348b9b632eb4914ebe, type: 3}
   JumpingSound: {fileID: 8300000, guid: 8afecba4c38190540a495860039d2907, type: 3}
+  ChangeGravitySound: {fileID: 0}
+  MissedShotSound: {fileID: 0}
 --- !u!4 &1201012287
 Transform:
   m_ObjectHideFlags: 0
@@ -3932,7 +3969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   fullHealth: 100
-  damageMultiplier: 1.70000005
+  damageMultiplier: 1.39999998
   armor: 6
   BloodSpill: {fileID: 472852043}
   health: 0
@@ -3950,13 +3987,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1426643394}
   pickupDistance: 3
-  pickupVelocity: .400000006
+  pickupVelocity: .300000012
   carriedBullet: {fileID: 766889722}
   maxShootPower: 15
-  shootMultiplier: 30
+  shootMultiplier: 40
   playerID: 1
   shootDown: 0
   TimeUntilAutoPickup: 5
+  TimeUntilShootPickup: .119999997
 --- !u!1 &1310484515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,6 +4559,7 @@ GameObject:
   - 212: {fileID: 1736844991}
   - 58: {fileID: 1736844990}
   - 50: {fileID: 1736844989}
+  - 114: {fileID: 1736844992}
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Untagged
@@ -4563,7 +4602,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 206827701}
   m_GameObject: {fileID: 1736844987}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 963fd817242817a4d9f2db273d9aba9e, type: 2}
   m_IsTrigger: 0
   m_Radius: .819999993
   m_Center: {x: 0, y: 0}
@@ -4591,6 +4630,19 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 0a8e5e4db4c0b03479f50a54efb12db9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1736844992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: e785ab7b7cc36f14eaf64e1a64d1b4a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 206827701}
+  m_GameObject: {fileID: 1736844987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e66a750d8bbaa47a7a302400b923d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VelocityMagnitude: 1
 --- !u!1 &1764707610
 GameObject:
   m_ObjectHideFlags: 0
